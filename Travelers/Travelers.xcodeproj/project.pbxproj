@@ -15,7 +15,7 @@
 		C6220AA527F8CBDB006DAAC1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C6220AA327F8CBDB006DAAC1 /* LaunchScreen.storyboard */; };
 		C6220AB027F8CBDB006DAAC1 /* TravelersTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6220AAF27F8CBDB006DAAC1 /* TravelersTests.swift */; };
 		C6220ABB27F8CBDB006DAAC1 /* TravelersUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6220ABA27F8CBDB006DAAC1 /* TravelersUITests.swift */; };
-		C6220ACC27F8D1A7006DAAC1 /* HomeScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C6220ACB27F8D1A7006DAAC1 /* HomeScreen.storyboard */; };
+		C6220ACC27F8D1A7006DAAC1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C6220ACB27F8D1A7006DAAC1 /* Main.storyboard */; };
 		C6220AEC27F8D51A006DAAC1 /* Comfortaa-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C6220AE627F8D51A006DAAC1 /* Comfortaa-SemiBold.ttf */; };
 		C6220AED27F8D51A006DAAC1 /* Comfortaa-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C6220AE727F8D51A006DAAC1 /* Comfortaa-Regular.ttf */; };
 		C6220AEE27F8D51A006DAAC1 /* OFL.txt in Resources */ = {isa = PBXBuildFile; fileRef = C6220AE827F8D51A006DAAC1 /* OFL.txt */; };
@@ -66,7 +66,7 @@
 		C6220AB627F8CBDB006DAAC1 /* TravelersUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TravelersUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C6220ABA27F8CBDB006DAAC1 /* TravelersUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TravelersUITests.swift; sourceTree = "<group>"; };
 		C6220ABC27F8CBDB006DAAC1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		C6220ACB27F8D1A7006DAAC1 /* HomeScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = HomeScreen.storyboard; path = Travelers/Storyboards/HomeScreen.storyboard; sourceTree = SOURCE_ROOT; };
+		C6220ACB27F8D1A7006DAAC1 /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Main.storyboard; path = Travelers/Storyboards/Main.storyboard; sourceTree = SOURCE_ROOT; };
 		C6220AE527F8D4F5006DAAC1 /* Comfortaa-VariableFont_wght.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Comfortaa-VariableFont_wght.ttf"; sourceTree = "<group>"; };
 		C6220AE627F8D51A006DAAC1 /* Comfortaa-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Comfortaa-SemiBold.ttf"; sourceTree = "<group>"; };
 		C6220AE727F8D51A006DAAC1 /* Comfortaa-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Comfortaa-Regular.ttf"; sourceTree = "<group>"; };
@@ -206,7 +206,7 @@
 			isa = PBXGroup;
 			children = (
 				C6220AA327F8CBDB006DAAC1 /* LaunchScreen.storyboard */,
-				C6220ACB27F8D1A7006DAAC1 /* HomeScreen.storyboard */,
+				C6220ACB27F8D1A7006DAAC1 /* Main.storyboard */,
 			);
 			path = Storyboards;
 			sourceTree = "<group>";
@@ -271,6 +271,7 @@
 				C6220A9227F8CBD3006DAAC1 /* Frameworks */,
 				C6220A9327F8CBD3006DAAC1 /* Resources */,
 				28DCA090EFC7F297E88117DD /* [CP] Embed Pods Frameworks */,
+				3CED7A716E29037DAAEB1482 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -309,6 +310,7 @@
 				C6220AB327F8CBDB006DAAC1 /* Frameworks */,
 				C6220AB427F8CBDB006DAAC1 /* Resources */,
 				09B3ABE37FC3C9E6A4826701 /* [CP] Embed Pods Frameworks */,
+				392C56A6C1C0C319B9E0E6D5 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -369,7 +371,7 @@
 			files = (
 				C6220AF027F8D51A006DAAC1 /* Comfortaa-Light.ttf in Resources */,
 				C6220AEE27F8D51A006DAAC1 /* OFL.txt in Resources */,
-				C6220ACC27F8D1A7006DAAC1 /* HomeScreen.storyboard in Resources */,
+				C6220ACC27F8D1A7006DAAC1 /* Main.storyboard in Resources */,
 				C6220AA527F8CBDB006DAAC1 /* LaunchScreen.storyboard in Resources */,
 				C6220AEC27F8D51A006DAAC1 /* Comfortaa-SemiBold.ttf in Resources */,
 				C6220AED27F8D51A006DAAC1 /* Comfortaa-Regular.ttf in Resources */,
@@ -429,6 +431,40 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Travelers/Pods-Travelers-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		392C56A6C1C0C319B9E0E6D5 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Travelers-TravelersUITests/Pods-Travelers-TravelersUITests-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Travelers-TravelersUITests/Pods-Travelers-TravelersUITests-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Travelers-TravelersUITests/Pods-Travelers-TravelersUITests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		3CED7A716E29037DAAEB1482 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Travelers/Pods-Travelers-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Travelers/Pods-Travelers-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Travelers/Pods-Travelers-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		5C2705EB2BC3937358DED7E1 /* [CP] Check Pods Manifest.lock */ = {
