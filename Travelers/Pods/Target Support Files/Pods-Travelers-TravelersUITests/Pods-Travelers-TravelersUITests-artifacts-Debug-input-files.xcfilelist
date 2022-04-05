@@ -1,0 +1,6 @@
+${PODS_ROOT}/Target Support Files/Pods-Travelers-TravelersUITests/Pods-Travelers-TravelersUITests-artifacts.sh
+${PODS_ROOT}/FBAEMKit/XCFrameworks/FBAEMKit.xcframework
+${PODS_ROOT}/FBSDKCoreKit/XCFrameworks/FBSDKCoreKit.xcframework
+${PODS_ROOT}/FBSDKCoreKit_Basics/XCFrameworks/FBSDKCoreKit_Basics.xcframework
+${PODS_ROOT}/FBSDKLoginKit/XCFrameworks/FBSDKLoginKit.xcframework
+${PODS_ROOT}/FBSDKShareKit/XCFrameworks/FBSDKShareKit.xcframework

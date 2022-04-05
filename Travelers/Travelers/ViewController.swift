@@ -8,12 +8,20 @@
 import UIKit
 import Firebase
 import GoogleSignIn
+import FBSDKLoginKit
 
-class ViewController: UIViewController, GIDSignInDelegate {
+class ViewController: UIViewController, GIDSignInDelegate, LoginButtonDelegate {
     
     @IBOutlet var signUpButton: UIButton!
     @IBOutlet var googleSignIn: GIDSignInButton!
     @IBOutlet var loginButton: UIButton!
+    
+    @IBAction func backButton(_ sender: Any) {
+        let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        let launchViewController = storyBoard.instantiateViewController(withIdentifier: "launchVC")
+        self.navigationController?.pushViewController(launchViewController, animated: true)
+        
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,6 +37,12 @@ class ViewController: UIViewController, GIDSignInDelegate {
         }
         
         // Do any additional setup after loading the view.
+        
+        let loginButton = FBLoginButton()
+              loginButton.delegate = self
+              loginButton.center = view.center
+              view.addSubview(loginButton)
+              loginButton.permissions = ["public_profile","email"]
         
         GIDSignIn.sharedInstance()?.presentingViewController = self
         GIDSignIn.sharedInstance().delegate = self
@@ -48,7 +62,7 @@ class ViewController: UIViewController, GIDSignInDelegate {
             print("Login Successful.")
             
             let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-            let searchViewController = storyBoard.instantiateViewController(withIdentifier: "search")
+            let searchViewController = storyBoard.instantiateViewController(withIdentifier: "searchVC")
             self.navigationController?.pushViewController(searchViewController, animated: true)
                 //self.show(searchViewController, sender: self)
             //self.present(searchViewController, animated: true, completion: nil)
@@ -58,5 +72,33 @@ class ViewController: UIViewController, GIDSignInDelegate {
             }
         }
     }
+    
+    func loginButton(_ loginButton: FBLoginButton!, didCompleteWith result: LoginManagerLoginResult!, error: Error!) {
+         if let error = error {
+             print(error.localizedDescription)
+         return
+         }
+         let credential = FacebookAuthProvider.credential(withAccessToken: AccessToken.current!.tokenString)
+         Auth.auth().signInAndRetrieveData(with: credential) { (authResult, error) in
+             if let error = error {
+                 print("Facebook authentication with Firebase error: ", error)
+                 return
+             }
+         print("Login success with FB!")
+         let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+         let searchViewController = storyBoard.instantiateViewController(withIdentifier: "searchVC")
+         self.navigationController?.pushViewController(searchViewController, animated: true)
+         }
+     }
+    
+    func loginButtonDidLogOut(_ loginButton: FBLoginButton!) {
+         print("Logged out")
+      }
+    
+    
+
+    
+    
+    
 }
 

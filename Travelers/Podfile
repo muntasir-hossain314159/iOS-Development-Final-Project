@@ -20,4 +20,8 @@ target 'Travelers' do
   pod 'Firebase/Firestore'
   pod 'GoogleSignIn', '~> 5.0'
 
+  pod 'FBSDKCoreKit', '~> 6.0.0'
+  pod 'FBSDKLoginKit', '~> 6.0.0'
+  pod 'FBSDKShareKit', '~> 6.0.0'
+
 end

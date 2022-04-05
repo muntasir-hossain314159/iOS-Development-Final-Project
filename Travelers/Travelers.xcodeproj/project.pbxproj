@@ -709,6 +709,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = EB1BFA803C9AFB529D40A92B /* Pods-Travelers.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
@@ -729,6 +730,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 3EAFE5B8EC437CEDEA18C8AC /* Pods-Travelers.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
