@@ -176,15 +176,16 @@
 		C6220A9727F8CBD3006DAAC1 /* Travelers */ = {
 			isa = PBXGroup;
 			children = (
-				C6220B7427F933AE006DAAC1 /* GoogleService-Info.plist */,
 				C6220B0A27F8D702006DAAC1 /* Font Families */,
 				C6220AD027F8D218006DAAC1 /* Storyboards */,
 				C6220A9827F8CBD3006DAAC1 /* AppDelegate.swift */,
 				C6220A9A27F8CBD3006DAAC1 /* SceneDelegate.swift */,
 				C6220A9C27F8CBD3006DAAC1 /* LoginViewController.swift */,
-				C6220AA127F8CBDB006DAAC1 /* Assets.xcassets */,
-				C6220AA627F8CBDB006DAAC1 /* Info.plist */,
+				C6D5598B27FD27F2001D2D0A /* SignUpViewController.swift */,
 				C6D5598027FD04EB001D2D0A /* LaunchViewController.swift */,
+				C6220AA127F8CBDB006DAAC1 /* Assets.xcassets */,
+				C6220B7427F933AE006DAAC1 /* GoogleService-Info.plist */,
+				C6220AA627F8CBDB006DAAC1 /* Info.plist */,
 			);
 			path = Travelers;
 			sourceTree = "<group>";
@@ -212,7 +213,6 @@
 			children = (
 				C6220AA327F8CBDB006DAAC1 /* LaunchScreen.storyboard */,
 				C6220ACB27F8D1A7006DAAC1 /* Main.storyboard */,
-				C6D5598B27FD27F2001D2D0A /* SignUpViewController.swift */,
 			);
 			path = Storyboards;
 			sourceTree = "<group>";
