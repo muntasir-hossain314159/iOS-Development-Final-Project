@@ -24,6 +24,7 @@
 		C6220AF127F8D51A006DAAC1 /* Comfortaa-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C6220AEB27F8D51A006DAAC1 /* Comfortaa-Medium.ttf */; };
 		C6220B7527F933AE006DAAC1 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C6220B7427F933AE006DAAC1 /* GoogleService-Info.plist */; };
 		C6D5598127FD04EB001D2D0A /* LaunchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6D5598027FD04EB001D2D0A /* LaunchViewController.swift */; };
+		C6D5598C27FD27F2001D2D0A /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6D5598B27FD27F2001D2D0A /* SignUpViewController.swift */; };
 		E5B4B4F825A556FC1E3DE6DD /* Pods_Travelers.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 805209B8CB23524846AB241A /* Pods_Travelers.framework */; };
 		F36562ADB52DCCF5FDB5C758 /* Pods_TravelersTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BB385F0C1B333DB2EE3D231B /* Pods_TravelersTests.framework */; };
 /* End PBXBuildFile section */
@@ -95,6 +96,7 @@
 		C6220B0827F8D6F2006DAAC1 /* Inter-ThinItalic-BETA.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-ThinItalic-BETA.otf"; sourceTree = "<group>"; };
 		C6220B7427F933AE006DAAC1 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		C6D5598027FD04EB001D2D0A /* LaunchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchViewController.swift; sourceTree = "<group>"; };
+		C6D5598B27FD27F2001D2D0A /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		EB1BFA803C9AFB529D40A92B /* Pods-Travelers.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Travelers.debug.xcconfig"; path = "Target Support Files/Pods-Travelers/Pods-Travelers.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -210,6 +212,7 @@
 			children = (
 				C6220AA327F8CBDB006DAAC1 /* LaunchScreen.storyboard */,
 				C6220ACB27F8D1A7006DAAC1 /* Main.storyboard */,
+				C6D5598B27FD27F2001D2D0A /* SignUpViewController.swift */,
 			);
 			path = Storyboards;
 			sourceTree = "<group>";
@@ -547,6 +550,7 @@
 				C6220A9927F8CBD3006DAAC1 /* AppDelegate.swift in Sources */,
 				C6220A9B27F8CBD3006DAAC1 /* SceneDelegate.swift in Sources */,
 				C6D5598127FD04EB001D2D0A /* LaunchViewController.swift in Sources */,
+				C6D5598C27FD27F2001D2D0A /* SignUpViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

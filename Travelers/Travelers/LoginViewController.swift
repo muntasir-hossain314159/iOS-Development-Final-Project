@@ -13,7 +13,8 @@ import FBSDKLoginKit
 class LoginViewController: UIViewController, GIDSignInDelegate, LoginButtonDelegate {
     
     @IBOutlet var googleSignIn: GIDSignInButton!
-  
+    @IBOutlet var socialAccountStackView: UIStackView!
+    
     @IBAction func backButton(_ sender: Any) {
         let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
         let launchViewController = storyBoard.instantiateViewController(withIdentifier: "launchVC")
@@ -24,12 +25,11 @@ class LoginViewController: UIViewController, GIDSignInDelegate, LoginButtonDeleg
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let loginButton = FBLoginButton()
-              loginButton.delegate = self
-              loginButton.center = view.center
-              view.addSubview(loginButton)
-              loginButton.permissions = ["public_profile","email"]
-        
+        let facebookLoginButton = FBLoginButton()
+        facebookLoginButton.delegate = self
+        facebookLoginButton.permissions = ["public_profile","email"]
+        socialAccountStackView.addArrangedSubview(facebookLoginButton)
+
         GIDSignIn.sharedInstance()?.presentingViewController = self
         GIDSignIn.sharedInstance().delegate = self
     }
@@ -71,7 +71,8 @@ class LoginViewController: UIViewController, GIDSignInDelegate, LoginButtonDeleg
             let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
             let searchViewController = storyBoard.instantiateViewController(withIdentifier: "searchVC")
             self.navigationController?.pushViewController(searchViewController, animated: true)
-                //self.show(searchViewController, sender: self)
+            
+            //self.show(searchViewController, sender: self)
             //self.present(searchViewController, animated: true, completion: nil)
           
             //This is where you should add the functionality of successful login
