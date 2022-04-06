@@ -9,7 +9,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
-        <array key="Comfortaa-VariableFont_wght.ttf">
+        <array key="Comfortaa-Medium.ttf">
             <string>Comfortaa-Medium</string>
         </array>
     </customFonts>
@@ -17,7 +17,7 @@
         <!--Launch Controller-->
         <scene sceneID="nrr-lf-IZg">
             <objects>
-                <viewController storyboardIdentifier="launchVC" id="VFt-8Y-Sn9" userLabel="Launch Controller" customClass="ViewController" customModule="Travelers" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="launchVC" id="VFt-8Y-Sn9" userLabel="Launch Controller" customClass="LaunchViewController" customModule="Travelers" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="zEh-g9-t9l">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -116,8 +116,8 @@
                         <barButtonItem key="backBarButtonItem" title="Back" id="O4a-9D-fH4"/>
                     </navigationItem>
                     <connections>
-                        <outlet property="loginButton" destination="YTJ-Ob-0Mp" id="KXW-VN-JVM"/>
-                        <outlet property="signUpButton" destination="cAH-un-5cJ" id="VZU-bP-lqW"/>
+                        <outlet property="loginButton" destination="YTJ-Ob-0Mp" id="gZX-nv-iPZ"/>
+                        <outlet property="signUpButton" destination="cAH-un-5cJ" id="Hvv-xM-7FN"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="11U-q1-42y" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -127,7 +127,7 @@
         <!--Login View Controller-->
         <scene sceneID="wHl-wL-jQR">
             <objects>
-                <viewController storyboardIdentifier="LoginVC" id="0Ri-Xy-WSc" userLabel="Login View Controller" customClass="ViewController" customModule="Travelers" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LoginVC" id="0Ri-Xy-WSc" userLabel="Login View Controller" customClass="LoginViewController" customModule="Travelers" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="i0c-VB-fo7">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -234,7 +234,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Login" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Hi-oI-qwa">
-                                <rect key="frame" x="126" y="111" width="163" height="61.5"/>
+                                <rect key="frame" x="125.5" y="111" width="163" height="61.5"/>
                                 <fontDescription key="fontDescription" name="Comfortaa-Medium" family="Comfortaa" pointSize="55"/>
                                 <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>

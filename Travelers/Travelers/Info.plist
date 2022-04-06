@@ -19,6 +19,12 @@
 	<key>CFBundleURLTypes</key>
 	<array>
 		<dict>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>fb3241886612714661</string>
+			</array>
+		</dict>
+		<dict>
 			<key>CFBundleTypeRole</key>
 			<string>Editor</string>
 			<key>CFBundleURLSchemes</key>
@@ -26,16 +32,15 @@
 				<string>com.googleusercontent.apps.237405262599-4mfot8li0jbvkmcamnarii8hr6l0i33n</string>
 			</array>
 		</dict>
-		<dict>
-			<key>CFBundleTypeRole</key>
-			<string>Editor</string>
-			<key>CFBundleURLSchemes</key>
-			<array/>
-		</dict>
-		<dict/>
 	</array>
 	<key>CFBundleVersion</key>
 	<string>1</string>
+	<key>FacebookAppID</key>
+	<string>3241886612714661</string>
+	<key>FacebookClientToken</key>
+	<string>5f0afb5c288c9377275cc799a1959100</string>
+	<key>FacebookDisplayName</key>
+	<string>Travelers</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>UIApplicationSceneManifest</key>
@@ -80,20 +85,5 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
-    <key>CFBundleURLTypes</key>
-    <array>
-      <dict>
-      <key>CFBundleURLSchemes</key>
-      <array>
-        <string>fb3241886612714661</string>
-      </array>
-      </dict>
-    </array>
-    <key>FacebookAppID</key>
-    <string>3241886612714661</string>
-    <key>FacebookClientToken</key>
-    <string>5f0afb5c288c9377275cc799a1959100</string>
-    <key>FacebookDisplayName</key>
-    <string>Travelers</string>
 </dict>
 </plist>
