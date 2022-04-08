@@ -12,6 +12,7 @@ import FBSDKLoginKit
 
 class LoginViewController: UIViewController, GIDSignInDelegate, LoginButtonDelegate {
     
+    @IBOutlet var loginButton: UIButton!
     @IBOutlet var googleSignIn: GIDSignInButton!
     @IBOutlet var socialAccountStackView: UIStackView!
     
@@ -21,8 +22,16 @@ class LoginViewController: UIViewController, GIDSignInDelegate, LoginButtonDeleg
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        styleLoginButton()
         setupFacebookButton()
         setupGoogleButton()
+    }
+    
+    func styleLoginButton() {
+        if loginButton != nil {
+            loginButton.layer.cornerRadius = 15.0
+            loginButton.layer.masksToBounds = true
+        }
     }
     
     @IBAction func loginButtonTapped(_ sender: Any) {
