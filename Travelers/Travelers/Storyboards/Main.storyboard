@@ -151,6 +151,9 @@
                                 <state key="normal" title="Login">
                                     <color key="titleColor" red="0.89019607840000003" green="0.98823529409999999" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="loginButtonTapped:" destination="0Ri-Xy-WSc" eventType="touchUpInside" id="8cB-de-vyh"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NyE-uN-EGi" userLabel="Seperator">
                                 <rect key="frame" x="20" y="462" width="374" height="3"/>
@@ -257,7 +260,9 @@
                     </view>
                     <navigationItem key="navigationItem" id="jCP-iH-mEs"/>
                     <connections>
+                        <outlet property="emailTF" destination="WXb-sA-3YV" id="Fak-iN-tEX"/>
                         <outlet property="googleSignIn" destination="XDc-1i-M3g" id="cA6-q5-B4c"/>
+                        <outlet property="passwordTF" destination="Phf-Fz-cdR" id="fVY-BW-mnY"/>
                         <outlet property="socialAccountStackView" destination="FFl-lN-NXX" id="FpF-xR-fPV"/>
                     </connections>
                 </viewController>
@@ -359,6 +364,9 @@
                                 <state key="normal" title="Create Account">
                                     <color key="titleColor" red="0.89019607840000003" green="0.98823529409999999" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="createAccountButtonTapped:" destination="1Fe-ma-aTC" eventType="touchUpInside" id="sFv-xr-AFO"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="VtN-xP-qdB"/>
@@ -381,6 +389,10 @@
                     <navigationItem key="navigationItem" id="EYp-SH-SFf"/>
                     <connections>
                         <outlet property="createAccountButton" destination="o2r-S6-b0C" id="Ge6-AI-vAg"/>
+                        <outlet property="emailTF" destination="10k-vo-871" id="QSf-RS-fHO"/>
+                        <outlet property="firstNameTF" destination="EcL-nw-jPJ" id="utQ-lW-Jro"/>
+                        <outlet property="lastNameTF" destination="rpC-FI-1Qp" id="bAP-rn-4rW"/>
+                        <outlet property="passwordTF" destination="AgY-Zg-www" id="6S0-Pq-DN2"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0Su-Ju-qDM" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
