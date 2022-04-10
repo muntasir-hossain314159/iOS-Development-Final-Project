@@ -6,6 +6,8 @@
 //
 
 import UIKit
+import Firebase
+import FBSDKLoginKit
 
 class CreateNewBlogViewController: UIViewController {
 
@@ -21,5 +23,21 @@ class CreateNewBlogViewController: UIViewController {
         self.navigationController?.pushViewController(searchViewController, animated: true)
     }
     
-
+    @IBAction func userProfileButtonTapped(_ sender: Any) {
+        let firebaseAuth = Auth.auth()
+        do {
+          try firebaseAuth.signOut() //Log out of Firebase and Google
+            LoginManager().logOut() //Log out of Facebook
+            transferToLaunchVC()
+        } catch let signOutError as NSError {
+            print("Error signing out: %@", signOutError)
+        }
+    }
+    
+    func transferToLaunchVC() {
+        let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        let launchViewController = storyBoard.instantiateViewController(withIdentifier: "launchVC")
+        self.navigationController?.pushViewController(launchViewController, animated: true)
+    }
+    
 }

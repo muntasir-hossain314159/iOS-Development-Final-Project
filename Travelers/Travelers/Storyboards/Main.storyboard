@@ -230,8 +230,8 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0H2-YF-wYU">
                                 <rect key="frame" x="258" y="779" width="61" height="31"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="31" id="GdK-li-mGn"/>
-                                    <constraint firstAttribute="width" constant="61" id="lMr-Hi-WV3"/>
+                                    <constraint firstAttribute="width" constant="61" id="Mib-aS-IKy"/>
+                                    <constraint firstAttribute="height" constant="31" id="cDj-OR-fIo"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="17"/>
                                 <state key="normal" title="Sign Up">
@@ -248,7 +248,6 @@
                             <constraint firstItem="4vH-l2-hdU" firstAttribute="trailing" secondItem="FFl-lN-NXX" secondAttribute="trailing" constant="68" id="0NW-9f-lBR"/>
                             <constraint firstItem="NyE-uN-EGi" firstAttribute="trailing" secondItem="i0c-VB-fo7" secondAttribute="trailingMargin" id="0aY-gf-2Bv"/>
                             <constraint firstItem="Phf-Fz-cdR" firstAttribute="leading" secondItem="4vH-l2-hdU" secondAttribute="leading" constant="63" id="1CR-Dg-Fam"/>
-                            <constraint firstItem="4vH-l2-hdU" firstAttribute="bottom" secondItem="0H2-YF-wYU" secondAttribute="bottom" constant="52" id="3WP-WW-4Mp"/>
                             <constraint firstItem="qSM-Q2-soY" firstAttribute="leading" secondItem="4vH-l2-hdU" secondAttribute="leading" constant="100" id="6QV-V3-wTl"/>
                             <constraint firstItem="0Hi-oI-qwa" firstAttribute="leading" secondItem="4vH-l2-hdU" secondAttribute="leading" constant="125.5" id="AbI-BA-wch"/>
                             <constraint firstItem="vDz-R5-cdW" firstAttribute="leading" secondItem="4vH-l2-hdU" secondAttribute="leading" constant="93" id="DmD-Z2-SlS"/>
@@ -260,9 +259,10 @@
                             <constraint firstItem="NyE-uN-EGi" firstAttribute="top" secondItem="qSM-Q2-soY" secondAttribute="bottom" constant="39" id="QwI-Pm-Fp8"/>
                             <constraint firstItem="4vH-l2-hdU" firstAttribute="bottom" secondItem="XWb-5p-HOM" secondAttribute="bottom" constant="58" id="SJw-9z-29W"/>
                             <constraint firstItem="4vH-l2-hdU" firstAttribute="trailing" secondItem="0Hi-oI-qwa" secondAttribute="trailing" constant="125.5" id="SQo-ts-QQV"/>
-                            <constraint firstItem="4vH-l2-hdU" firstAttribute="trailing" secondItem="0H2-YF-wYU" secondAttribute="trailing" constant="95" id="VIN-iP-ntY"/>
                             <constraint firstItem="Phf-Fz-cdR" firstAttribute="top" secondItem="WXb-sA-3YV" secondAttribute="bottom" constant="29" id="WP0-xC-Y47"/>
+                            <constraint firstItem="0H2-YF-wYU" firstAttribute="leading" secondItem="XWb-5p-HOM" secondAttribute="trailing" constant="5.5" id="Xo3-2g-kv5"/>
                             <constraint firstItem="WXb-sA-3YV" firstAttribute="leading" secondItem="4vH-l2-hdU" secondAttribute="leading" constant="63" id="cBA-Dw-aGP"/>
+                            <constraint firstItem="4vH-l2-hdU" firstAttribute="bottom" secondItem="0H2-YF-wYU" secondAttribute="bottom" constant="52" id="cbk-Vs-sPa"/>
                             <constraint firstItem="qSM-Q2-soY" firstAttribute="top" secondItem="Phf-Fz-cdR" secondAttribute="bottom" constant="50" id="d0n-Ff-4cX"/>
                             <constraint firstItem="FFl-lN-NXX" firstAttribute="leading" secondItem="4vH-l2-hdU" secondAttribute="leading" constant="69" id="hFK-uG-GOI"/>
                             <constraint firstItem="vDz-R5-cdW" firstAttribute="top" secondItem="NyE-uN-EGi" secondAttribute="bottom" constant="49" id="kKO-Nk-0uN"/>
@@ -457,6 +457,10 @@
                                             <imageReference key="image" image="person.circle.fill" catalog="system" symbolScale="large"/>
                                             <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="35" scale="default" weight="regular"/>
                                         </state>
+                                        <connections>
+                                            <action selector="searchButtonTapped:" destination="Yqu-oj-BYl" eventType="touchUpInside" id="3KU-aX-xJH"/>
+                                            <action selector="userProfileButtonTapped:" destination="Yqu-oj-BYl" eventType="touchUpInside" id="3Tg-Dh-cNi"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" red="0.35686274509803922" green="0.36470588235294116" blue="0.59607843137254901" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -766,6 +770,9 @@
                                             <imageReference key="image" image="person.circle.fill" catalog="system" symbolScale="large"/>
                                             <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="35" scale="default" weight="regular"/>
                                         </state>
+                                        <connections>
+                                            <action selector="userProfileButtonTapped:" destination="1aN-Nl-2H9" eventType="touchUpInside" id="qjS-23-ilj"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" red="0.35686274509999999" green="0.36470588240000001" blue="0.59607843140000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>

@@ -21,10 +21,15 @@ class LoginViewController: UIViewController, GIDSignInDelegate, LoginButtonDeleg
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        styleLoginButton()
-        setupFacebookButton()
-        setupGoogleButton()
+        if Auth.auth().currentUser != nil {
+            //User is logged in from previous session
+            self.transferToSearchVC()
+        } else {
+            //No user is signed in
+            styleLoginButton()
+            setupFacebookButton()
+            setupGoogleButton()
+        }
     }
     
     func styleLoginButton() {
