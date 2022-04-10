@@ -10,11 +10,10 @@ import Firebase
 import GoogleSignIn
 import FBSDKLoginKit
 
-class LoginViewController: UIViewController, GIDSignInDelegate, LoginButtonDelegate {
+class LoginViewController: UIViewController, GIDSignInDelegate {
     
     @IBOutlet var loginButton: UIButton!
     @IBOutlet var googleSignIn: GIDSignInButton!
-    @IBOutlet var socialAccountStackView: UIStackView!
     
     @IBOutlet var emailTF: UITextField!
     @IBOutlet var passwordTF: UITextField!
@@ -27,7 +26,6 @@ class LoginViewController: UIViewController, GIDSignInDelegate, LoginButtonDeleg
         } else {
             //No user is signed in
             styleLoginButton()
-            setupFacebookButton()
             setupGoogleButton()
         }
     }
@@ -52,32 +50,24 @@ class LoginViewController: UIViewController, GIDSignInDelegate, LoginButtonDeleg
         }
         
     }
-    //Facebook Authentication
-    func setupFacebookButton() {
-        let facebookLoginButton = FBLoginButton()
-        facebookLoginButton.delegate = self
-        facebookLoginButton.permissions = ["public_profile","email"]
-        socialAccountStackView.addArrangedSubview(facebookLoginButton)
-    }
-    
-    func loginButton(_ loginButton: FBLoginButton, didCompleteWith result: LoginManagerLoginResult?, error: Error?) {
-        if let error = error {
-            print(error.localizedDescription)
-            return
-        }
-        let credentials = FacebookAuthProvider.credential(withAccessToken: AccessToken.current!.tokenString)
-        Auth.auth().signIn(with: credentials) { (authResult, error) in
+    //Facebook Authentication - Sign in with Facebook after tapping on Button
+    @IBAction func facebookSignInTapped(_ sender: Any) {
+        let loginManager = LoginManager()
+        loginManager.logIn(permissions: ["public_profile","email"], from: self) { (result, error) in
             if let error = error {
                 print(error.localizedDescription)
-            } else {
-                print("Login Successful.")
-                self.transferToSearchVC()
+                return
+            }
+            let credentials = FacebookAuthProvider.credential(withAccessToken: AccessToken.current!.tokenString)
+            Auth.auth().signIn(with: credentials) { (authResult, error) in
+                if let error = error {
+                    print(error.localizedDescription)
+                } else {
+                    print("Login Successful.")
+                    self.transferToSearchVC()
+                }
             }
         }
-    }
-    
-    func loginButtonDidLogOut(_ loginButton: FBLoginButton) {
-        print("Logged Out")
     }
     
     //Google Authentication
@@ -116,7 +106,6 @@ class LoginViewController: UIViewController, GIDSignInDelegate, LoginButtonDeleg
         let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
         let launchViewController = storyBoard.instantiateViewController(withIdentifier: "launchVC")
         self.navigationController?.pushViewController(launchViewController, animated: true)
-    }
-    
+    }    
 }
 

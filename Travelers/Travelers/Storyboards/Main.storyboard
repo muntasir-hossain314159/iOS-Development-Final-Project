@@ -13,7 +13,7 @@
         <array key="Comfortaa-Bold.ttf">
             <string>Comfortaa-Bold</string>
         </array>
-        <array key="Comfortaa-VariableFont_wght.ttf">
+        <array key="Comfortaa-Medium.ttf">
             <string>Comfortaa-Medium</string>
         </array>
     </customFonts>
@@ -184,11 +184,11 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleAspectFit" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="FFl-lN-NXX">
-                                <rect key="frame" x="69" y="606" width="277" height="50"/>
+                                <rect key="frame" x="69" y="606" width="277" height="115"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XDc-1i-M3g" userLabel="Google Sign In" customClass="GIDSignInButton">
                                         <rect key="frame" x="0.0" y="0.0" width="277" height="50"/>
-                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <color key="backgroundColor" systemColor="systemGray5Color"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="277" id="Sww-h5-TSw"/>
                                             <constraint firstAttribute="height" constant="50" id="Ulf-VJ-WEz"/>
@@ -197,6 +197,17 @@
                                             <action selector="GoogleSignIn:" destination="fkl-ir-UjO" eventType="valueChanged" id="y5D-av-a18"/>
                                         </connections>
                                     </view>
+                                    <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fbQ-IE-x3n" userLabel="Facebook Sign In">
+                                        <rect key="frame" x="0.0" y="70" width="277" height="45"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="277" id="7HJ-Fu-ZCz"/>
+                                            <constraint firstAttribute="height" constant="45" id="h8r-8Z-4jP"/>
+                                        </constraints>
+                                        <state key="normal" image="Facebook Sign In Logo"/>
+                                        <connections>
+                                            <action selector="facebookSignInTapped:" destination="0Ri-Xy-WSc" eventType="touchUpInside" id="ZBm-8G-sBp"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qu8-xN-khf">
@@ -280,7 +291,6 @@
                         <outlet property="googleSignIn" destination="XDc-1i-M3g" id="cA6-q5-B4c"/>
                         <outlet property="loginButton" destination="qSM-Q2-soY" id="KCd-4U-tUd"/>
                         <outlet property="passwordTF" destination="Phf-Fz-cdR" id="fVY-BW-mnY"/>
-                        <outlet property="socialAccountStackView" destination="FFl-lN-NXX" id="FpF-xR-fPV"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PgJ-Tc-kjo" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -886,6 +896,7 @@
     <resources>
         <image name="App Logo" width="210" height="208"/>
         <image name="Back Button" width="112" height="44"/>
+        <image name="Facebook Sign In Logo" width="365" height="84"/>
         <image name="magnifyingglass" catalog="system" width="128" height="115"/>
         <image name="map" catalog="system" width="128" height="110"/>
         <image name="person.circle.fill" catalog="system" width="128" height="121"/>
@@ -896,6 +907,9 @@
         </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGray5Color">
+            <color red="0.89803921568627454" green="0.89803921568627454" blue="0.91764705882352937" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemGray6Color">
             <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

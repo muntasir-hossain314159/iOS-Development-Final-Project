@@ -26,8 +26,7 @@ class SearchViewController: UIViewController {
     @IBAction func userProfileButtonTapped(_ sender: Any) {
         let firebaseAuth = Auth.auth()
         do {
-          try firebaseAuth.signOut() //Log out of Firebase and Google
-          LoginManager().logOut() //Log out of Facebook
+          try firebaseAuth.signOut() //Log out of Firebase, Google, and Facebook
           transferToLaunchVC()
           print("Successfully Logged Out")
         } catch let signOutError as NSError {
