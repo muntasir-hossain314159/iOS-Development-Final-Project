@@ -13,7 +13,7 @@
         <array key="Comfortaa-Bold.ttf">
             <string>Comfortaa-Bold</string>
         </array>
-        <array key="Comfortaa-Medium.ttf">
+        <array key="Comfortaa-VariableFont_wght.ttf">
             <string>Comfortaa-Medium</string>
         </array>
     </customFonts>
@@ -483,10 +483,10 @@
                                     <constraint firstItem="Hac-kD-3br" firstAttribute="leading" secondItem="tI6-sK-5of" secondAttribute="leading" constant="28" id="jIN-mx-d0I"/>
                                 </constraints>
                             </view>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="YFu-4e-X8j" userLabel="Create a New Blog Stack View">
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="YFu-4e-X8j" userLabel="Blog Stack View">
                                 <rect key="frame" x="40" y="155" width="334" height="510"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Create a New Blog" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wRJ-vM-jKM">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Create a New Blog" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wRJ-vM-jKM" userLabel="Create a New Blog Label">
                                         <rect key="frame" x="0.0" y="0.0" width="334" height="28"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="28" id="8od-en-CZQ"/>
@@ -496,7 +496,7 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Name your Travel Blog" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="XhV-Hf-fkJ">
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Name your Travel Blog" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="XhV-Hf-fkJ" userLabel="Travel Blog Name Text Field">
                                         <rect key="frame" x="0.0" y="48" width="334" height="34"/>
                                         <color key="backgroundColor" systemColor="systemGray6Color"/>
                                         <constraints>
@@ -506,7 +506,7 @@
                                         <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="17"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Location" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="qVc-JD-5jq">
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Location" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="qVc-JD-5jq" userLabel="Travel Location Text Field">
                                         <rect key="frame" x="0.0" y="102" width="334" height="34"/>
                                         <color key="backgroundColor" systemColor="systemGray6Color"/>
                                         <constraints>
@@ -516,9 +516,16 @@
                                         <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="17"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
-                                    <view tag="1" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0ya-0r-lYy" userLabel="Image Travel Shots">
+                                    <view tag="1" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0ya-0r-lYy" userLabel="Upload Travel Shot View">
                                         <rect key="frame" x="0.0" y="156" width="334" height="134"/>
                                         <subviews>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="1Rk-cO-lwf">
+                                                <rect key="frame" x="0.0" y="0.0" width="334" height="134"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="334" id="gDR-01-zJx"/>
+                                                    <constraint firstAttribute="height" constant="134" id="rCb-x0-hyF"/>
+                                                </constraints>
+                                            </imageView>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zdy-fV-pVi" userLabel="Upload Image Button">
                                                 <rect key="frame" x="146" y="47" width="43.5" height="40.5"/>
                                                 <constraints>
@@ -530,6 +537,9 @@
                                                     <imageReference key="image" image="plus.circle" catalog="system" symbolScale="large"/>
                                                     <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="30" scale="default" weight="semibold"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="uploadImageButtonTapped:" destination="Yqu-oj-BYl" eventType="touchUpInside" id="sfm-RE-6Nl"/>
+                                                </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Upload your Travel Shots" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Mo-73-WJ2">
                                                 <rect key="frame" x="72" y="8" width="191" height="19"/>
@@ -550,6 +560,8 @@
                                             <constraint firstItem="3Mo-73-WJ2" firstAttribute="top" secondItem="0ya-0r-lYy" secondAttribute="top" constant="8" id="XOt-F1-47D"/>
                                             <constraint firstAttribute="trailing" secondItem="zdy-fV-pVi" secondAttribute="trailing" constant="144.5" id="XyI-XZ-koJ"/>
                                             <constraint firstItem="3Mo-73-WJ2" firstAttribute="leading" secondItem="0ya-0r-lYy" secondAttribute="leading" constant="72" id="a3c-mO-ED3"/>
+                                            <constraint firstItem="1Rk-cO-lwf" firstAttribute="top" secondItem="0ya-0r-lYy" secondAttribute="top" id="aMJ-Fl-CZS"/>
+                                            <constraint firstItem="1Rk-cO-lwf" firstAttribute="leading" secondItem="0ya-0r-lYy" secondAttribute="leading" id="gPo-RW-ED4"/>
                                             <constraint firstItem="zdy-fV-pVi" firstAttribute="top" secondItem="3Mo-73-WJ2" secondAttribute="bottom" constant="20" id="vJ2-M0-daX"/>
                                             <constraint firstAttribute="height" constant="134" id="wgM-vc-v0F"/>
                                         </constraints>
@@ -707,7 +719,7 @@
                                     <constraint firstAttribute="height" constant="40.5" id="qfF-GW-xcg"/>
                                 </constraints>
                             </stackView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aea-J7-nTf">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aea-J7-nTf" userLabel="Publish Button">
                                 <rect key="frame" x="121" y="736" width="172" height="47"/>
                                 <color key="backgroundColor" red="0.89019607840000003" green="0.98823529409999999" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
@@ -718,6 +730,9 @@
                                 <state key="normal" title="Publish">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <action selector="publishBlogButtonTapped:" destination="Yqu-oj-BYl" eventType="touchUpInside" id="1CO-HB-fAs"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="qrh-3m-PYy"/>
@@ -741,10 +756,17 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="H1r-VK-7ZJ"/>
+                    <connections>
+                        <outlet property="travelBlogNameTF" destination="XhV-Hf-fkJ" id="rGc-44-ASR"/>
+                        <outlet property="travelDescriptionTV" destination="OBz-eh-NdN" id="Z1x-Bk-IJ5"/>
+                        <outlet property="travelImageView" destination="1Rk-cO-lwf" id="IAJ-B9-BvN"/>
+                        <outlet property="travelLocationTF" destination="qVc-JD-5jq" id="PdP-gv-qfM"/>
+                        <outlet property="uploadTravelShotLabel" destination="3Mo-73-WJ2" id="uS8-NG-7aQ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iTS-9q-lqn" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2219" y="998"/>
+            <point key="canvasLocation" x="2218.840579710145" y="997.76785714285711"/>
         </scene>
         <!--Search Default View Controller-->
         <scene sceneID="lAK-YG-wcL">

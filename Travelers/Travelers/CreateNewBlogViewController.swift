@@ -7,14 +7,105 @@
 
 import UIKit
 import Firebase
+import FirebaseStorage
 import FBSDKLoginKit
 
-class CreateNewBlogViewController: UIViewController {
+class CreateNewBlogViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
+    @IBOutlet var travelBlogNameTF: UITextField!
+    @IBOutlet var travelLocationTF: UITextField!
+    @IBOutlet var uploadTravelShotLabel: UILabel!
+    @IBOutlet var travelImageView: UIImageView!
+    @IBOutlet var travelDescriptionTV: UITextView!
+    
+    private let storage = Storage.storage().reference()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        guard let urlString = UserDefaults.standard.value(forKey: "url") as? String,
+              let url = URL(string: urlString)
+        else {return}
+        
+        print(urlString)
+        
+        let task = URLSession.shared.dataTask(with: url) { (data, _, error) in
+            guard let data = data, error == nil else {
+                print("Failed to download image")
+                return
+            }
+            DispatchQueue.main.async {
+                print("Downloading Image")
+                let image: UIImage = UIImage(data: data)!
+                self.travelImageView.image = image
+            }
+        }
+        
+        task.resume()
+    }
+    
+    @IBAction func uploadImageButtonTapped(_ sender: Any) {
+        let picker = UIImagePickerController()
+        picker.sourceType = .photoLibrary
+        picker.delegate = self
+        picker.allowsEditing = true
+        present(picker, animated: true)
+    }
+    
+  
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        picker.dismiss(animated: true, completion: nil)
+        
+        guard let image = info[UIImagePickerController.InfoKey.editedImage] as? UIImage else {return}
+        
+        guard let imageURL = info[UIImagePickerController.InfoKey.imageURL] as? URL else {return}
+        
+        guard let imageData = image.pngData() else {return}
+        
+        //Create reference folder in Cloud Storage
+        let imageRef = storage.child("images/\(imageURL.lastPathComponent)")
+        
+        //Upload image data (bytes) to a child reference (folder) in Cloud Storage
+        imageRef.putData(imageData, metadata: nil) { (_, error) in
+            guard error == nil else {
+                print("Failed to upload image to Cloud Storage")
+                return
+            }
+            print("Uploaded Image Successfully")
+            imageRef.downloadURL(completion: { (url, error) in
+                guard let url = url, error == nil else {return}
+            
+                let urlString = url.absoluteString
+                
+                UserDefaults.standard.set(urlString, forKey: "url")
+                
+                self.viewDidLoad()
+            })
+        }
+    }
 
-        // Do any additional setup after loading the view.
+  
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        picker.dismiss(animated: true, completion: nil)
+        
+    }
+    
+    @IBAction func publishBlogButtonTapped(_ sender: Any) {
+        let travelBlogName: String = travelBlogNameTF.text!
+        let travelLocation: String = travelLocationTF.text!
+        let travelDescription: String = travelDescriptionTV.text!
+        let downloadImageURL: String = UserDefaults.standard.value(forKey: "url") as! String
+        guard let user_ID: String = Auth.auth().currentUser?.uid else { return }
+            
+        //Store Blog information in Firestore
+        let db = Firestore.firestore()
+        db.collection("blogs").addDocument(data: ["travel_blog_name": travelBlogName, "travel_location": travelLocation, "travel_description": travelDescription, "download_image_url": downloadImageURL, "user_ID": user_ID]) { (err) in
+            //Failed to add User information to Firestore
+            if let error = err {
+                print(error.localizedDescription)
+                return
+            }
+        }
     }
     
     @IBAction func searchButtonTapped(_ sender: Any) {
