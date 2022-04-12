@@ -117,7 +117,7 @@ class CreateNewBlogViewController: UIViewController, UIImagePickerControllerDele
             }
             
             print("Successfully Uploaded to Firestore")
-            self.transferToBlogPage()
+            //self.transferToBlogPage()
         }
     }
     
