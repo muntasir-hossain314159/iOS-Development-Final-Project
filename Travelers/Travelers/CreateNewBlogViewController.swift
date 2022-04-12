@@ -61,12 +61,12 @@ class CreateNewBlogViewController: UIViewController, UIImagePickerControllerDele
                 
                 UserDefaults.standard.set(urlString, forKey: "url")
                 
-                //Display the chosen image using the downloaded url
                 self.displayImage()
             })
         }
     }
     
+    //Display the chosen image using the downloaded url
     func displayImage() {
         
         uploadTravelShotView.backgroundColor = .white
@@ -93,13 +93,13 @@ class CreateNewBlogViewController: UIViewController, UIImagePickerControllerDele
         task.resume()
     }
     
-    //Return to Create New Blog page when user hits cancel
+    //Return to Create New Blog page after user presses cancel
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
         picker.dismiss(animated: true, completion: nil)
         
     }
     
-    //Upload data from the Blog page onto Firestore
+    //Upload the information from the Create New Blog page onto Firestore
     @IBAction func publishBlogButtonTapped(_ sender: Any) {
         let travelBlogName: String = travelBlogNameTF.text!
         let travelLocation: String = travelLocationTF.text!
