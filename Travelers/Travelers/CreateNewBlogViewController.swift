@@ -17,33 +17,15 @@ class CreateNewBlogViewController: UIViewController, UIImagePickerControllerDele
     @IBOutlet var uploadTravelShotLabel: UILabel!
     @IBOutlet var travelImageView: UIImageView!
     @IBOutlet var travelDescriptionTV: UITextView!
+    @IBOutlet var uploadTravelShotView: UIView!
     
     private let storage = Storage.storage().reference()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        guard let urlString = UserDefaults.standard.value(forKey: "url") as? String,
-              let url = URL(string: urlString)
-        else {return}
-        
-        print(urlString)
-        
-        let task = URLSession.shared.dataTask(with: url) { (data, _, error) in
-            guard let data = data, error == nil else {
-                print("Failed to download image")
-                return
-            }
-            DispatchQueue.main.async {
-                print("Downloading Image")
-                let image: UIImage = UIImage(data: data)!
-                self.travelImageView.image = image
-            }
-        }
-        
-        task.resume()
     }
     
+    //Clicking on the Upload Image button displays the Photo Library
     @IBAction func uploadImageButtonTapped(_ sender: Any) {
         let picker = UIImagePickerController()
         picker.sourceType = .photoLibrary
@@ -52,7 +34,7 @@ class CreateNewBlogViewController: UIViewController, UIImagePickerControllerDele
         present(picker, animated: true)
     }
     
-  
+    //Choose an image from the Photo Library and display it on the Create New Blog page
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         picker.dismiss(animated: true, completion: nil)
         
@@ -79,17 +61,45 @@ class CreateNewBlogViewController: UIViewController, UIImagePickerControllerDele
                 
                 UserDefaults.standard.set(urlString, forKey: "url")
                 
-                self.viewDidLoad()
+                //Display the chosen image using the downloaded url
+                self.displayImage()
             })
         }
     }
-
-  
+    
+    func displayImage() {
+        
+        uploadTravelShotView.backgroundColor = .white
+        uploadTravelShotLabel.isHidden = true
+        
+        guard let urlString = UserDefaults.standard.value(forKey: "url") as? String,
+              let url = URL(string: urlString)
+        else {return}
+        
+        print(urlString)
+   
+        let task = URLSession.shared.dataTask(with: url) { (data, _, error) in
+            guard let data = data, error == nil else {
+                print("Failed to download image")
+                return
+            }
+            DispatchQueue.main.async {
+                print("Downloading Image")
+                let image: UIImage = UIImage(data: data)!
+                self.travelImageView.image = image
+            }
+        }
+        
+        task.resume()
+    }
+    
+    //Return to Create New Blog page when user hits cancel
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
         picker.dismiss(animated: true, completion: nil)
         
     }
     
+    //Upload data from the Blog page onto Firestore
     @IBAction func publishBlogButtonTapped(_ sender: Any) {
         let travelBlogName: String = travelBlogNameTF.text!
         let travelLocation: String = travelLocationTF.text!
@@ -105,15 +115,20 @@ class CreateNewBlogViewController: UIViewController, UIImagePickerControllerDele
                 print(error.localizedDescription)
                 return
             }
+            
+            print("Successfully Uploaded to Firestore")
+            self.transferToBlogPage()
         }
     }
     
-    @IBAction func searchButtonTapped(_ sender: Any) {
+    //Navigate to Blog View Controller
+    func transferToBlogPage() {
         let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-        let searchViewController = storyBoard.instantiateViewController(withIdentifier: "searchVC")
+        let searchViewController = storyBoard.instantiateViewController(withIdentifier: "blogVC")
         self.navigationController?.pushViewController(searchViewController, animated: true)
     }
     
+    //Sign Out User
     @IBAction func userProfileButtonTapped(_ sender: Any) {
         let firebaseAuth = Auth.auth()
         do {
@@ -125,10 +140,17 @@ class CreateNewBlogViewController: UIViewController, UIImagePickerControllerDele
         }
     }
     
+    //Navigate to Launch View Controller
     func transferToLaunchVC() {
         let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
         let launchViewController = storyBoard.instantiateViewController(withIdentifier: "launchVC")
         self.navigationController?.pushViewController(launchViewController, animated: true)
     }
     
+    //Navigate to Search View Controller
+    @IBAction func searchButtonTapped(_ sender: Any) {
+        let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        let searchViewController = storyBoard.instantiateViewController(withIdentifier: "searchVC")
+        self.navigationController?.pushViewController(searchViewController, animated: true)
+    }
 }

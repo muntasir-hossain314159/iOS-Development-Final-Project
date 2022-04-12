@@ -53,6 +53,7 @@ class LoginViewController: UIViewController, GIDSignInDelegate {
     //Facebook Authentication - Sign in with Facebook after tapping on Button
     @IBAction func facebookSignInTapped(_ sender: Any) {
         let loginManager = LoginManager()
+      
         loginManager.logIn(permissions: ["public_profile","email"], from: self) { (result, error) in
             if let error = error {
                 print(error.localizedDescription)
