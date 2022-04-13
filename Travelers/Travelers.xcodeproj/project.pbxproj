@@ -23,6 +23,7 @@
 		C6220AF027F8D51A006DAAC1 /* Comfortaa-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C6220AEA27F8D51A006DAAC1 /* Comfortaa-Light.ttf */; };
 		C6220AF127F8D51A006DAAC1 /* Comfortaa-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C6220AEB27F8D51A006DAAC1 /* Comfortaa-Medium.ttf */; };
 		C6220B7527F933AE006DAAC1 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C6220B7427F933AE006DAAC1 /* GoogleService-Info.plist */; };
+		C6B0680A28075D7D003A2ACC /* BlogViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6B0680928075D7D003A2ACC /* BlogViewController.swift */; };
 		C6D5598127FD04EB001D2D0A /* LaunchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6D5598027FD04EB001D2D0A /* LaunchViewController.swift */; };
 		C6D5598C27FD27F2001D2D0A /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6D5598B27FD27F2001D2D0A /* SignUpViewController.swift */; };
 		C6D55A0A28028C80001D2D0A /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6D55A0928028C7F001D2D0A /* SearchViewController.swift */; };
@@ -97,6 +98,7 @@
 		C6220B0727F8D6F2006DAAC1 /* Inter-ExtraBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-ExtraBold.otf"; sourceTree = "<group>"; };
 		C6220B0827F8D6F2006DAAC1 /* Inter-ThinItalic-BETA.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-ThinItalic-BETA.otf"; sourceTree = "<group>"; };
 		C6220B7427F933AE006DAAC1 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		C6B0680928075D7D003A2ACC /* BlogViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlogViewController.swift; sourceTree = "<group>"; };
 		C6D5598027FD04EB001D2D0A /* LaunchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchViewController.swift; sourceTree = "<group>"; };
 		C6D5598B27FD27F2001D2D0A /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		C6D55A0928028C7F001D2D0A /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
@@ -192,6 +194,7 @@
 				C6220AA127F8CBDB006DAAC1 /* Assets.xcassets */,
 				C6220B7427F933AE006DAAC1 /* GoogleService-Info.plist */,
 				C6220AA627F8CBDB006DAAC1 /* Info.plist */,
+				C6B0680928075D7D003A2ACC /* BlogViewController.swift */,
 			);
 			path = Travelers;
 			sourceTree = "<group>";
@@ -558,6 +561,7 @@
 				C6220A9B27F8CBD3006DAAC1 /* SceneDelegate.swift in Sources */,
 				C6D55A0F28028CC7001D2D0A /* CreateNewBlogViewController.swift in Sources */,
 				C6D5598127FD04EB001D2D0A /* LaunchViewController.swift in Sources */,
+				C6B0680A28075D7D003A2ACC /* BlogViewController.swift in Sources */,
 				C6D5598C27FD27F2001D2D0A /* SignUpViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -49,7 +49,7 @@ class SignUpViewController: UIViewController {
             
             //Store User information in Firestore
             let db = Firestore.firestore()
-            db.collection("users").addDocument(data: ["first_name": firstName, "last_name": lastName, "user_ID": result!.user.uid]) { (err) in
+            db.collection("users").document("\(result!.user.uid)").setData(["first_name": firstName, "last_name": lastName]) { (err) in
                 //Failed to add User information to Firestore
                 if let error = err {
                     print(error.localizedDescription)

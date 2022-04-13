@@ -66,7 +66,7 @@ class CreateNewBlogViewController: UIViewController, UIImagePickerControllerDele
         }
     }
     
-    //Display the chosen image using the downloaded URL
+    //Display the chosen image using the download URL
     func displayImage() {
         
         uploadTravelShotView.backgroundColor = .white
@@ -109,23 +109,23 @@ class CreateNewBlogViewController: UIViewController, UIImagePickerControllerDele
             
         //Store Blog information in Firestore
         let db = Firestore.firestore()
-        db.collection("blogs").addDocument(data: ["travel_blog_name": travelBlogName, "travel_location": travelLocation, "travel_description": travelDescription, "download_image_url": downloadImageURL, "user_ID": user_ID]) { (err) in
-            //Failed to add User information to Firestore
+        db.collection("blogs").document("\(travelBlogName + user_ID)").setData(["travel_blog_name": travelBlogName, "travel_location": travelLocation, "travel_description": travelDescription, "download_image_url": downloadImageURL]) { (err) in
             if let error = err {
                 print(error.localizedDescription)
                 return
             }
             
             print("Successfully Uploaded to Firestore")
-            self.transferToBlogPage()
+            self.transferToBlogPage(travelBlogName: travelBlogName, user_ID: user_ID)
         }
     }
     
     //Navigate to Blog View Controller
-    func transferToBlogPage() {
+    func transferToBlogPage(travelBlogName: String, user_ID: String) {
         let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-        let searchViewController = storyBoard.instantiateViewController(withIdentifier: "blogVC")
-        self.navigationController?.pushViewController(searchViewController, animated: true)
+        let blogViewController = storyBoard.instantiateViewController(withIdentifier: "blogVC") as! BlogViewController
+        blogViewController.documentID = travelBlogName + user_ID
+        self.navigationController?.pushViewController(blogViewController, animated: true)
     }
     
     //Sign Out User

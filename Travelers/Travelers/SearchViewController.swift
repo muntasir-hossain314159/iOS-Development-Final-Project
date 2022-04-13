@@ -19,8 +19,8 @@ class SearchViewController: UIViewController {
     
      @IBAction func createNewBlogButtonTapped(_ sender: Any) {
         let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-        let searchViewController = storyBoard.instantiateViewController(withIdentifier: "createNewBlogVC")
-        self.navigationController?.pushViewController(searchViewController, animated: true)
+        let createNewBlogViewController = storyBoard.instantiateViewController(withIdentifier: "createNewBlogVC")
+        self.navigationController?.pushViewController(createNewBlogViewController, animated: true)
      }
      
     @IBAction func userProfileButtonTapped(_ sender: Any) {
