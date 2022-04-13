@@ -66,7 +66,7 @@ class CreateNewBlogViewController: UIViewController, UIImagePickerControllerDele
         }
     }
     
-    //Display the chosen image using the downloaded url
+    //Display the chosen image using the downloaded URL
     func displayImage() {
         
         uploadTravelShotView.backgroundColor = .white
@@ -117,7 +117,7 @@ class CreateNewBlogViewController: UIViewController, UIImagePickerControllerDele
             }
             
             print("Successfully Uploaded to Firestore")
-            //self.transferToBlogPage()
+            self.transferToBlogPage()
         }
     }
     
