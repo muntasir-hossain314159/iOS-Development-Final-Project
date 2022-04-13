@@ -27,7 +27,7 @@ class BlogViewController: UIViewController {
         retrieveDataFromBlogsCollection()
     }
     
-    struct User: Codable {
+    struct UserData: Codable {
         var first_name: String
         var last_name: String
     }
@@ -40,13 +40,18 @@ class BlogViewController: UIViewController {
     }
     
     func retrieveDataFromUsersCollection() {
+        guard let user_ID: String = Auth.auth().currentUser?.uid
+        else {
+            print("Failed, unable to retrieve user")
+            return
+        }
+        
         let db = Firestore.firestore()
-        let docRef = db.collection("users").document("\(String(describing: Auth.auth().currentUser?.uid))")
-        docRef.getDocument(as: User.self) { (result) in
+        let docRef = db.collection("users").document("\(user_ID)")
+        docRef.getDocument(as: UserData.self) { result in
             switch result {
             case .success(let userResult):
                 print("Successfully Retrieved User Data")
-                print(userResult.first_name)
                 self.authorLabel.text = userResult.first_name + " " + userResult.last_name
             case .failure(let error):
                 print("Error in retrieving data \(error)")
@@ -89,6 +94,23 @@ class BlogViewController: UIViewController {
         }
 
         task.resume()
+    }
+    
+    @IBAction func userProfileButtonTapped(_ sender: Any) {
+        let firebaseAuth = Auth.auth()
+        do {
+          try firebaseAuth.signOut() //Log out of Firebase, Google, and Facebook
+          transferToLaunchVC()
+          print("Successfully Logged Out")
+        } catch let signOutError as NSError {
+            print("Error signing out: %@", signOutError)
+        }
+    }
+    
+    func transferToLaunchVC() {
+        let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        let launchViewController = storyBoard.instantiateViewController(withIdentifier: "launchVC")
+        self.navigationController?.pushViewController(launchViewController, animated: true)
     }
     
 }

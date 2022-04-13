@@ -186,6 +186,7 @@
 				C6220AD027F8D218006DAAC1 /* Storyboards */,
 				C6220A9827F8CBD3006DAAC1 /* AppDelegate.swift */,
 				C6220A9A27F8CBD3006DAAC1 /* SceneDelegate.swift */,
+				C6B0680928075D7D003A2ACC /* BlogViewController.swift */,
 				C6D55A0E28028CC7001D2D0A /* CreateNewBlogViewController.swift */,
 				C6D55A0928028C7F001D2D0A /* SearchViewController.swift */,
 				C6220A9C27F8CBD3006DAAC1 /* LoginViewController.swift */,
@@ -194,7 +195,6 @@
 				C6220AA127F8CBDB006DAAC1 /* Assets.xcassets */,
 				C6220B7427F933AE006DAAC1 /* GoogleService-Info.plist */,
 				C6220AA627F8CBDB006DAAC1 /* Info.plist */,
-				C6B0680928075D7D003A2ACC /* BlogViewController.swift */,
 			);
 			path = Travelers;
 			sourceTree = "<group>";
