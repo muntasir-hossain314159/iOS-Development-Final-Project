@@ -48,6 +48,7 @@ class BlogViewController: UIViewController {
         
         let db = Firestore.firestore()
         let docRef = db.collection("users").document("\(user_ID)")
+        
         docRef.getDocument(as: UserData.self) { result in
             switch result {
             case .success(let userResult):

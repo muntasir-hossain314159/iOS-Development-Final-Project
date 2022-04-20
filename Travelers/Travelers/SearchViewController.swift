@@ -12,7 +12,9 @@ import FBSDKLoginKit
 
 class SearchViewController: UIViewController, UISearchBarDelegate {
     @IBOutlet var searchBar: UISearchBar!
+    @IBOutlet var scrollView: UIScrollView!
     @IBOutlet var blogCardVS: UIStackView!
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -64,10 +66,12 @@ class SearchViewController: UIViewController, UISearchBarDelegate {
             }
         }
     }
+  
     
     func displayBlogInformation(blog: BlogData) {
+        
         let locationImage: UIImageView = UIImageView()
-        locationImage.contentMode = .scaleAspectFit
+        locationImage.contentMode = .scaleAspectFill
         
         guard let url = URL(string: blog.download_image_url) else {return}
 
