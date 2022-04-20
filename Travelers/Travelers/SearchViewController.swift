@@ -10,14 +10,38 @@ import Firebase
 import FirebaseFirestore
 import FBSDKLoginKit
 
-class SearchViewController: UIViewController, UISearchBarDelegate {
-    @IBOutlet var searchBar: UISearchBar!
-    @IBOutlet var scrollView: UIScrollView!
-    @IBOutlet var blogCardVS: UIStackView!
+class SearchViewController: UIViewController, UISearchBarDelegate, UITableViewDelegate, UITableViewDataSource {
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        print("Card was tapped")
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 3
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "blogCellIdentifier", for: indexPath)
+        //cell.imageView?.image = displayImageInformation(downloadImageURL: blogArray[indexPath.row].download_image_url)
+        cell.imageView?.image = UIImage(named: "App Logo")
+        cell.imageView?.contentMode = .scaleAspectFill
+        
+        cell.textLabel?.text = "Hello World"
+        return cell
+    }
 
+    @IBOutlet var searchBar: UISearchBar!
+    @IBOutlet var tableView: UITableView!
+    var blogArray = [BlogData] ()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        tableView.delegate = self
+        tableView.dataSource = self
+        
+        tableView.rowHeight = UITableView.automaticDimension
+        tableView.estimatedRowHeight = 600
+
         searchBar.delegate = self
         self.hidKeyboardWhenTappedAround()
     }
@@ -56,11 +80,12 @@ class SearchViewController: UIViewController, UISearchBarDelegate {
         let db = Firestore.firestore()
         let docRef = db.collection("blogs").document(documentID)
 
-        docRef.getDocument(as: BlogData.self) { result in
+        docRef.getDocument(as: BlogData.self) { [self] result in
             switch result {
             case .success(let blogResult):
+                self.blogArray.append(blogResult)
+                //self.displayBlogInformation(blog: blogResult)
                 print("Successfully Retrieved Blog Data")
-                self.displayBlogInformation(blog: blogResult)
             case .failure(let error):
                 print("Error in retrieving data \(error)")
             }
@@ -68,32 +93,31 @@ class SearchViewController: UIViewController, UISearchBarDelegate {
     }
   
     
-    func displayBlogInformation(blog: BlogData) {
+    func displayImageInformation(downloadImageURL: String) -> UIImage{
         
-        let locationImage: UIImageView = UIImageView()
-        locationImage.contentMode = .scaleAspectFill
-        
-        guard let url = URL(string: blog.download_image_url) else {return}
+        //let locationImage: UIImageView = UIImageView()
+        //locationImage.contentMode = .scaleAspectFit
+        //locationImage.image = image
+        //var image: UIImage
+        guard let url = URL(string: downloadImageURL) else {return UIImage()}
 
         let task = URLSession.shared.dataTask(with: url) { (data, _, error) in
           guard let data = data, error == nil else {
               print("Failed to download image")
               return
           }
+            
           DispatchQueue.main.async {
               print("Downloading Image")
-              let image: UIImage = UIImage(data: data)!
-              locationImage.image = image
+              let image = UIImage(data: data)!
           }
         }
-
-        task.resume()
         
-        blogCardVS.addArrangedSubview(locationImage)
+        task.resume()
+        return UIImage()
+
     }
-    
- 
-    
+
     @IBAction func createNewBlogButtonTapped(_ sender: Any) {
         let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
         let createNewBlogViewController = storyBoard.instantiateViewController(withIdentifier: "createNewBlogVC")
