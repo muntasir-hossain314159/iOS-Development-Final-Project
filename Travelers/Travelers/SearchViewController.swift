@@ -17,16 +17,20 @@ class SearchViewController: UIViewController, UISearchBarDelegate, UITableViewDe
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 3
+        //return 3
+        return blogArray.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "blogCellIdentifier", for: indexPath)
-        //cell.imageView?.image = displayImageInformation(downloadImageURL: blogArray[indexPath.row].download_image_url)
-        cell.imageView?.image = UIImage(named: "App Logo")
-        cell.imageView?.contentMode = .scaleAspectFill
-        
-        cell.textLabel?.text = "Hello World"
+        let cell = tableView.dequeueReusableCell(withIdentifier: "BlogCell", for: indexPath) as! BlogCell
+        /*cell.authorName.text = "Muntasir Hossain"
+        cell.blogName.text = "My Adventures"
+        cell.location.text = "Dhaka, Bangladesh"
+        cell.blogImage.image = UIImage(named: "smoky-autumn-sunset-mountain-range_dp_680")*/
+        cell.blogName.text = blogArray[indexPath.row].travel_blog_name
+        cell.authorName.text = blogArray[indexPath.row].travel_author
+        cell.location.text = blogArray[indexPath.row].travel_location
+        displayImageInformation(blogCell: cell, downloadImageURL: blogArray[indexPath.row].download_image_url)
         return cell
     }
 
@@ -39,8 +43,8 @@ class SearchViewController: UIViewController, UISearchBarDelegate, UITableViewDe
         tableView.delegate = self
         tableView.dataSource = self
         
-        tableView.rowHeight = UITableView.automaticDimension
-        tableView.estimatedRowHeight = 600
+        let nib = UINib(nibName: "BlogCell", bundle: nil)
+        tableView.register(nib, forCellReuseIdentifier: "BlogCell")
 
         searchBar.delegate = self
         self.hidKeyboardWhenTappedAround()
@@ -48,6 +52,8 @@ class SearchViewController: UIViewController, UISearchBarDelegate, UITableViewDe
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         let searchValue: String = searchBar.text!
+        blogArray.removeAll()
+        self.tableView.reloadData()
         self.searchFirestore(searchValue: searchValue)
     }
     
@@ -71,6 +77,7 @@ class SearchViewController: UIViewController, UISearchBarDelegate, UITableViewDe
     
     struct BlogData: Codable {
         var travel_blog_name: String
+        var travel_author: String
         var travel_location: String
         var travel_description: String
         var download_image_url: String
@@ -84,6 +91,7 @@ class SearchViewController: UIViewController, UISearchBarDelegate, UITableViewDe
             switch result {
             case .success(let blogResult):
                 self.blogArray.append(blogResult)
+                self.tableView.reloadData()
                 //self.displayBlogInformation(blog: blogResult)
                 print("Successfully Retrieved Blog Data")
             case .failure(let error):
@@ -93,13 +101,13 @@ class SearchViewController: UIViewController, UISearchBarDelegate, UITableViewDe
     }
   
     
-    func displayImageInformation(downloadImageURL: String) -> UIImage{
+    func displayImageInformation(blogCell: BlogCell, downloadImageURL: String) {
         
         //let locationImage: UIImageView = UIImageView()
         //locationImage.contentMode = .scaleAspectFit
         //locationImage.image = image
         //var image: UIImage
-        guard let url = URL(string: downloadImageURL) else {return UIImage()}
+        guard let url = URL(string: downloadImageURL) else {return}
 
         let task = URLSession.shared.dataTask(with: url) { (data, _, error) in
           guard let data = data, error == nil else {
@@ -110,11 +118,11 @@ class SearchViewController: UIViewController, UISearchBarDelegate, UITableViewDe
           DispatchQueue.main.async {
               print("Downloading Image")
               let image = UIImage(data: data)!
+              blogCell.blogImage.image = image
           }
         }
         
         task.resume()
-        return UIImage()
 
     }
 

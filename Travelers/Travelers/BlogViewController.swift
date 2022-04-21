@@ -23,23 +23,24 @@ class BlogViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        retrieveDataFromUsersCollection()
+        //retrieveDataFromUsersCollection()
         retrieveDataFromBlogsCollection()
     }
-    
-    struct UserData: Codable {
+
+    /*struct UserData: Codable {
         var first_name: String
         var last_name: String
-    }
+    }*/
     
     struct BlogData: Codable {
         var travel_blog_name: String
+        var travel_author: String
         var travel_location: String
         var travel_description: String
         var download_image_url: String
     }
     
-    func retrieveDataFromUsersCollection() {
+    /*func retrieveDataFromUsersCollection() {
         guard let user_ID: String = Auth.auth().currentUser?.uid
         else {
             print("Failed, unable to retrieve user")
@@ -58,7 +59,7 @@ class BlogViewController: UIViewController {
                 print("Error in retrieving data \(error)")
             }
         }
-    }
+    }*/
     
     func retrieveDataFromBlogsCollection() {
         let db = Firestore.firestore()
@@ -77,6 +78,7 @@ class BlogViewController: UIViewController {
     
     func setUpBlogPage(blog: BlogData) {
         titleLabel.text = blog.travel_blog_name
+        authorLabel.text = blog.travel_author
         travelLocationLabel.text = blog.travel_location
         travelDescriptionTV.text = blog.travel_description
         
