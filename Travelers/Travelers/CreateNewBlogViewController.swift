@@ -104,50 +104,38 @@ class CreateNewBlogViewController: UIViewController, UIImagePickerControllerDele
         var last_name: String
     }
     
-    func retrieveFullNameOfAuthorFromUsersCollection() -> String {
-        var travelAuthor: String?
-        
-        let group = DispatchGroup()
-        group.enter()
-
-        DispatchQueue.global(qos: .default).async  {
-            guard let user_ID: String = Auth.auth().currentUser?.uid
-            else {
-                print("Failed, unable to retrieve user")
-                return
-            }
-            
-            let db = Firestore.firestore()
-            let docRef = db.collection("users").document("\(user_ID)")
-
-            docRef.getDocument(as: UserData.self) { result in
-                switch result {
-                case .success(let userResult):
-                    travelAuthor = userResult.first_name + " " + userResult.last_name
-                    print("Successfully Retrieved User Data")
-                    print(travelAuthor!)
-                case .failure(let error):
-                    print("Error in retrieving data \(error)")
-                }
-            }
-            
-            group.leave()
+    func retrieveFullNameOfAuthorFromUsersCollection(travelBlogName: String, user_ID: String) {
+        guard let user_ID: String = Auth.auth().currentUser?.uid
+        else {
+            print("Failed, unable to retrieve user")
+            return
         }
         
-        group.wait()
+        let db = Firestore.firestore()
+        let docRef = db.collection("users").document("\(user_ID)")
+
+        docRef.getDocument(as: UserData.self) { result in
+            switch result {
+            case .success(let userResult):
+                let travelAuthor = userResult.first_name + " " + userResult.last_name
         
-        if travelAuthor == nil {
-            travelAuthor = "N/A"
-            return travelAuthor!
-        } else {
-            return travelAuthor!
+                db.collection("blogs").document("\(travelBlogName + user_ID)").setData(["travel_author": travelAuthor], merge: true) { (err) in
+                    if let error = err {
+                        print(error.localizedDescription)
+                        return
+                    }
+                    print("Successfully Uploaded all data to Firestore")
+                    self.transferToBlogPage(travelBlogName: travelBlogName, user_ID: user_ID)
+                }
+            case .failure(let error):
+                print("Error in retrieving data \(error)")
+            }
         }
     }
     
     //Upload the information from the Create New Blog page onto Firestore
     @IBAction func publishBlogButtonTapped(_ sender: Any) {
         let travelBlogName: String = travelBlogNameTF.text!
-        let travelAuthor: String = retrieveFullNameOfAuthorFromUsersCollection()
         let travelLocation: String = travelLocationTF.text!
         let travelDescription: String = travelDescriptionTV.text!
        
@@ -156,14 +144,14 @@ class CreateNewBlogViewController: UIViewController, UIImagePickerControllerDele
             
         //Store Blog information in Firestore
         let db = Firestore.firestore()
-        db.collection("blogs").document("\(travelBlogName + user_ID)").setData(["travel_blog_name": travelBlogName, "travel_author": travelAuthor, "travel_location": travelLocation, "travel_description": travelDescription, "download_image_url": downloadImageURL]) { (err) in
+        db.collection("blogs").document("\(travelBlogName + user_ID)").setData(["travel_blog_name": travelBlogName, "travel_location": travelLocation, "travel_description": travelDescription, "download_image_url": downloadImageURL]) { (err) in
             if let error = err {
                 print(error.localizedDescription)
                 return
             }
             
-            print("Successfully Uploaded to Firestore")
-            self.transferToBlogPage(travelBlogName: travelBlogName, user_ID: user_ID)
+            print("Successfully Uploaded Inputted Information to Firestore")
+            self.retrieveFullNameOfAuthorFromUsersCollection(travelBlogName: travelBlogName, user_ID: user_ID)
         }
     }
     

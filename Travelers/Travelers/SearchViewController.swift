@@ -53,7 +53,7 @@ class SearchViewController: UIViewController, UISearchBarDelegate, UITableViewDe
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         let searchValue: String = searchBar.text!
         blogArray.removeAll()
-        self.tableView.reloadData()
+        //self.tableView.reloadData()
         self.searchFirestore(searchValue: searchValue)
     }
     
@@ -61,6 +61,7 @@ class SearchViewController: UIViewController, UISearchBarDelegate, UITableViewDe
         let db = Firestore.firestore()
         let blogsRef = db.collection("blogs")
         blogsRef.whereField("travel_location", isGreaterThanOrEqualTo: searchValue)
+            .whereField("travel_location", isLessThanOrEqualTo: searchValue + "\u{f8ff}")
             .getDocuments { (queryResult, error) in
                 if let error = error {
                     print(error.localizedDescription)
@@ -77,10 +78,10 @@ class SearchViewController: UIViewController, UISearchBarDelegate, UITableViewDe
     
     struct BlogData: Codable {
         var travel_blog_name: String
-        var travel_author: String
         var travel_location: String
         var travel_description: String
         var download_image_url: String
+        var travel_author: String
     }
     
     func retrieveDataFromBlogsCollection(documentID: String) {

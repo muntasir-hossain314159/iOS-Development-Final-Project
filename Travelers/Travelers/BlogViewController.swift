@@ -34,10 +34,10 @@ class BlogViewController: UIViewController {
     
     struct BlogData: Codable {
         var travel_blog_name: String
-        var travel_author: String
         var travel_location: String
         var travel_description: String
         var download_image_url: String
+        var travel_author: String
     }
     
     /*func retrieveDataFromUsersCollection() {
