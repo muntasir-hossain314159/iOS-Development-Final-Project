@@ -13,20 +13,26 @@ import FBSDKLoginKit
 class SearchViewController: UIViewController, UISearchBarDelegate, UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print("Card was tapped")
+        print("Transfer to Search Result Blog VC")
+        
+        let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        let searchResultBlogViewController = storyBoard.instantiateViewController(withIdentifier: "searchResultBlogVC") as! SearchResultBlogViewController
+        searchResultBlogViewController.travel_blog_name = blogArray[indexPath.row].travel_blog_name
+        searchResultBlogViewController.travel_author = blogArray[indexPath.row].travel_author
+        searchResultBlogViewController.travel_location = blogArray[indexPath.row].travel_location
+        searchResultBlogViewController.travel_description = blogArray[indexPath.row].travel_description
+        searchResultBlogViewController.download_image_url = blogArray[indexPath.row].download_image_url
+        
+        self.navigationController?.pushViewController(searchResultBlogViewController, animated: true)
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        //return 3
         return blogArray.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "BlogCell", for: indexPath) as! BlogCell
-        /*cell.authorName.text = "Muntasir Hossain"
-        cell.blogName.text = "My Adventures"
-        cell.location.text = "Dhaka, Bangladesh"
-        cell.blogImage.image = UIImage(named: "smoky-autumn-sunset-mountain-range_dp_680")*/
+        
         cell.blogName.text = blogArray[indexPath.row].travel_blog_name
         cell.authorName.text = blogArray[indexPath.row].travel_author
         cell.location.text = blogArray[indexPath.row].travel_location
@@ -53,7 +59,6 @@ class SearchViewController: UIViewController, UISearchBarDelegate, UITableViewDe
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         let searchValue: String = searchBar.text!
         blogArray.removeAll()
-        //self.tableView.reloadData()
         self.searchFirestore(searchValue: searchValue)
     }
     
@@ -93,7 +98,6 @@ class SearchViewController: UIViewController, UISearchBarDelegate, UITableViewDe
             case .success(let blogResult):
                 self.blogArray.append(blogResult)
                 self.tableView.reloadData()
-                //self.displayBlogInformation(blog: blogResult)
                 print("Successfully Retrieved Blog Data")
             case .failure(let error):
                 print("Error in retrieving data \(error)")
@@ -104,10 +108,6 @@ class SearchViewController: UIViewController, UISearchBarDelegate, UITableViewDe
     
     func displayImageInformation(blogCell: BlogCell, downloadImageURL: String) {
         
-        //let locationImage: UIImageView = UIImageView()
-        //locationImage.contentMode = .scaleAspectFit
-        //locationImage.image = image
-        //var image: UIImage
         guard let url = URL(string: downloadImageURL) else {return}
 
         let task = URLSession.shared.dataTask(with: url) { (data, _, error) in
@@ -149,7 +149,6 @@ class SearchViewController: UIViewController, UISearchBarDelegate, UITableViewDe
         let launchViewController = storyBoard.instantiateViewController(withIdentifier: "launchVC")
         self.navigationController?.pushViewController(launchViewController, animated: true)
     }
-    
 }
 
 extension SearchViewController {

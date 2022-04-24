@@ -23,6 +23,7 @@
 		C6220AF027F8D51A006DAAC1 /* Comfortaa-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C6220AEA27F8D51A006DAAC1 /* Comfortaa-Light.ttf */; };
 		C6220AF127F8D51A006DAAC1 /* Comfortaa-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C6220AEB27F8D51A006DAAC1 /* Comfortaa-Medium.ttf */; };
 		C6220B7527F933AE006DAAC1 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C6220B7427F933AE006DAAC1 /* GoogleService-Info.plist */; };
+		C625D1032815F50D002E2EA4 /* SearchResultBlogViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C625D1022815F50D002E2EA4 /* SearchResultBlogViewController.swift */; };
 		C6A80DFD2811A90F0003A47A /* BlogCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A80DFB2811A90F0003A47A /* BlogCell.swift */; };
 		C6A80DFE2811A90F0003A47A /* BlogCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C6A80DFC2811A90F0003A47A /* BlogCell.xib */; };
 		C6B0680A28075D7D003A2ACC /* BlogViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6B0680928075D7D003A2ACC /* BlogViewController.swift */; };
@@ -100,6 +101,7 @@
 		C6220B0727F8D6F2006DAAC1 /* Inter-ExtraBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-ExtraBold.otf"; sourceTree = "<group>"; };
 		C6220B0827F8D6F2006DAAC1 /* Inter-ThinItalic-BETA.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-ThinItalic-BETA.otf"; sourceTree = "<group>"; };
 		C6220B7427F933AE006DAAC1 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		C625D1022815F50D002E2EA4 /* SearchResultBlogViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultBlogViewController.swift; sourceTree = "<group>"; };
 		C6A80DFB2811A90F0003A47A /* BlogCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlogCell.swift; sourceTree = "<group>"; };
 		C6A80DFC2811A90F0003A47A /* BlogCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BlogCell.xib; sourceTree = "<group>"; };
 		C6B0680928075D7D003A2ACC /* BlogViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlogViewController.swift; sourceTree = "<group>"; };
@@ -192,6 +194,7 @@
 				C6220A9A27F8CBD3006DAAC1 /* SceneDelegate.swift */,
 				C6B0680928075D7D003A2ACC /* BlogViewController.swift */,
 				C6D55A0E28028CC7001D2D0A /* CreateNewBlogViewController.swift */,
+				C625D1022815F50D002E2EA4 /* SearchResultBlogViewController.swift */,
 				C6D55A0928028C7F001D2D0A /* SearchViewController.swift */,
 				C6220A9C27F8CBD3006DAAC1 /* LoginViewController.swift */,
 				C6D5598B27FD27F2001D2D0A /* SignUpViewController.swift */,
@@ -565,6 +568,7 @@
 				C6D55A0A28028C80001D2D0A /* SearchViewController.swift in Sources */,
 				C6220A9D27F8CBD3006DAAC1 /* LoginViewController.swift in Sources */,
 				C6220A9927F8CBD3006DAAC1 /* AppDelegate.swift in Sources */,
+				C625D1032815F50D002E2EA4 /* SearchResultBlogViewController.swift in Sources */,
 				C6220A9B27F8CBD3006DAAC1 /* SceneDelegate.swift in Sources */,
 				C6D55A0F28028CC7001D2D0A /* CreateNewBlogViewController.swift in Sources */,
 				C6A80DFD2811A90F0003A47A /* BlogCell.swift in Sources */,

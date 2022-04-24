@@ -10,14 +10,14 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
+        <array key="Comfortaa-Bold.ttf">
+            <string>Comfortaa-Bold</string>
+        </array>
         <array key="Comfortaa-Medium.ttf">
             <string>Comfortaa-Medium</string>
         </array>
         <array key="Comfortaa-Regular.ttf">
             <string>Comfortaa-Regular</string>
-        </array>
-        <array key="Comfortaa-VariableFont_wght.ttf">
-            <string>Comfortaa-Bold</string>
         </array>
     </customFonts>
     <scenes>
@@ -471,7 +471,6 @@
                                             <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="35" scale="default" weight="regular"/>
                                         </state>
                                         <connections>
-                                            <action selector="searchButtonTapped:" destination="Yqu-oj-BYl" eventType="touchUpInside" id="3KU-aX-xJH"/>
                                             <action selector="userProfileButtonTapped:" destination="Yqu-oj-BYl" eventType="touchUpInside" id="3Tg-Dh-cNi"/>
                                         </connections>
                                     </button>
@@ -774,7 +773,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iTS-9q-lqn" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2219" y="1251"/>
+            <point key="canvasLocation" x="2070" y="1251"/>
         </scene>
         <!--Search Default View Controller-->
         <scene sceneID="lAK-YG-wcL">
@@ -901,6 +900,7 @@
                                     <constraint firstAttribute="height" constant="524" id="Dv9-kj-YRO"/>
                                     <constraint firstAttribute="width" constant="374" id="KIq-Tf-yVL"/>
                                 </constraints>
+                                <inset key="separatorInset" minX="20" minY="0.0" maxX="0.0" maxY="0.0"/>
                             </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="4z3-EM-pK8"/>
@@ -932,7 +932,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SwS-AU-Nv9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2502.898550724638" y="105.80357142857143"/>
+            <point key="canvasLocation" x="2071" y="122"/>
         </scene>
         <!--Profile Page View-->
         <scene sceneID="j9u-cH-cds">
@@ -1090,7 +1090,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PeO-4H-YNt" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2219" y="-807"/>
+            <point key="canvasLocation" x="2070" y="-852"/>
         </scene>
         <!--Profile Page Edit View-->
         <scene sceneID="iKs-gp-fuy">
@@ -1244,12 +1244,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VrE-IE-tu4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3412" y="-808"/>
+            <point key="canvasLocation" x="3412" y="-852"/>
         </scene>
-        <!--Blog View Controller-->
+        <!--Search Result Blog View Controller-->
         <scene sceneID="ns5-lc-WRs">
             <objects>
-                <viewController storyboardIdentifier="blogVC" id="Vsg-rQ-YSP" userLabel="Blog View Controller" customClass="BlogViewController" customModule="Travelers" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="searchResultBlogVC" id="Vsg-rQ-YSP" userLabel="Search Result Blog View Controller" customClass="SearchResultBlogViewController" customModule="Travelers" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="7aS-sd-HII">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1281,7 +1281,7 @@
                                             <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="35" scale="default" weight="regular"/>
                                         </state>
                                         <connections>
-                                            <action selector="userProfileButtonTapped:" destination="Vsg-rQ-YSP" eventType="touchUpInside" id="PgE-Og-OwU"/>
+                                            <action selector="userProfileButtonTapped:" destination="Vsg-rQ-YSP" eventType="touchUpInside" id="snJ-jW-WWW"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -1306,6 +1306,9 @@
                                             <imageReference key="image" image="magnifyingglass" catalog="system" symbolScale="large"/>
                                             <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="30" scale="default" weight="semibold"/>
                                         </state>
+                                        <connections>
+                                            <action selector="searchButtonTapped:" destination="Vsg-rQ-YSP" eventType="touchUpInside" id="cjF-9V-iDd"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kA6-Sh-w2L" userLabel="Create Blog Button">
                                         <rect key="frame" x="141.5" y="0.0" width="44.5" height="43"/>
@@ -1315,7 +1318,7 @@
                                             <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="30" scale="default" weight="semibold"/>
                                         </state>
                                         <connections>
-                                            <action selector="createNewBlogButtonTapped:" destination="Vsg-rQ-YSP" eventType="touchUpInside" id="NKn-Pr-k69"/>
+                                            <action selector="createNewBlogButtonTapped:" destination="Vsg-rQ-YSP" eventType="touchUpInside" id="SGl-1d-hNo"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gQm-ZS-tAT" userLabel="Map Button">
@@ -1383,8 +1386,8 @@ Nam ultrices pretium est, a posuere diam elementum eu. Phasellus cursus egestas 
                                 </constraints>
                                 <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="default" weight="regular"/>
                             </imageView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="JvW-yG-cDA">
-                                <rect key="frame" x="12" y="222" width="374" height="232"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="JvW-yG-cDA">
+                                <rect key="frame" x="20" y="222" width="374" height="232"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="374" id="9YH-hx-Ybi"/>
                                     <constraint firstAttribute="height" constant="232" id="Py3-ii-Nu1"/>
@@ -1419,27 +1422,27 @@ Nam ultrices pretium est, a posuere diam elementum eu. Phasellus cursus egestas 
                     </view>
                     <navigationItem key="navigationItem" id="REX-ep-m5u"/>
                     <connections>
-                        <outlet property="authorLabel" destination="Uxx-6F-bAU" id="yty-jy-WcR"/>
-                        <outlet property="titleLabel" destination="JfC-Wx-p0W" id="NPf-K2-wB9"/>
-                        <outlet property="travelDescriptionTV" destination="WgG-g9-4V1" id="x9o-J1-hRg"/>
-                        <outlet property="travelImageView" destination="JvW-yG-cDA" id="ZCc-tt-Vsh"/>
-                        <outlet property="travelLocationLabel" destination="REL-iI-nbb" id="m34-8S-SXd"/>
+                        <outlet property="authorLabel" destination="Uxx-6F-bAU" id="eES-s9-NU9"/>
+                        <outlet property="titleLabel" destination="JfC-Wx-p0W" id="x7K-HF-Xvf"/>
+                        <outlet property="travelDescriptionTV" destination="WgG-g9-4V1" id="MYc-Ju-rPc"/>
+                        <outlet property="travelImageView" destination="JvW-yG-cDA" id="Nz3-B7-78c"/>
+                        <outlet property="travelLocationLabel" destination="REL-iI-nbb" id="qLB-Po-byc"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vLt-OL-gDN" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3412" y="122"/>
         </scene>
-        <!--Search Default View Controller-->
+        <!--Scroll View Controller-->
         <scene sceneID="2oB-zy-2Ky">
             <objects>
-                <viewController id="KuN-IO-IhQ" userLabel="Search Default View Controller" sceneMemberID="viewController">
+                <viewController id="KuN-IO-IhQ" userLabel="Scroll View Controller" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="b4n-f2-LT0">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="I9N-eI-o66">
-                                <rect key="frame" x="20" y="275" width="374" height="526"/>
+                                <rect key="frame" x="20" y="269" width="374" height="526"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="S8P-ZV-1YY">
                                         <rect key="frame" x="0.0" y="0.0" width="374" height="1004.5"/>
@@ -1487,7 +1490,7 @@ Nam ultrices pretium est, a posuere diam elementum eu. Phasellus cursus egestas 
                                 </constraints>
                             </scrollView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Svd-5z-WyX" userLabel="Header View">
-                                <rect key="frame" x="0.0" y="6" width="414" height="131"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="131"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Travelers" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FqM-7S-mXZ">
                                         <rect key="frame" x="28" y="64" width="169" height="47"/>
@@ -1528,7 +1531,7 @@ Nam ultrices pretium est, a posuere diam elementum eu. Phasellus cursus egestas 
                                 </constraints>
                             </view>
                             <searchBar contentMode="redraw" placeholder="Search &quot;locations&quot;" translatesAutoresizingMaskIntoConstraints="NO" id="Ncc-dv-szl">
-                                <rect key="frame" x="36" y="161" width="343" height="44"/>
+                                <rect key="frame" x="36" y="155" width="343" height="44"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="kRK-ka-vAN"/>
@@ -1538,7 +1541,7 @@ Nam ultrices pretium est, a posuere diam elementum eu. Phasellus cursus egestas 
                                 <textInputTraits key="textInputTraits"/>
                             </searchBar>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Top spots near you" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pJ1-fK-Djz">
-                                <rect key="frame" x="36" y="227" width="183" height="23"/>
+                                <rect key="frame" x="36" y="221" width="183" height="23"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="23" id="SOi-Gz-Jqo"/>
                                     <constraint firstAttribute="width" constant="183" id="bTk-Bu-ek8"/>
@@ -1548,7 +1551,7 @@ Nam ultrices pretium est, a posuere diam elementum eu. Phasellus cursus egestas 
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="98" translatesAutoresizingMaskIntoConstraints="NO" id="hmR-LI-zIe" userLabel="Footer Stack View">
-                                <rect key="frame" x="44" y="821" width="326.5" height="40.5"/>
+                                <rect key="frame" x="44" y="815" width="326.5" height="40.5"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="M65-aP-IrA" userLabel="Search Button">
                                         <rect key="frame" x="0.0" y="0.0" width="43.5" height="40.5"/>
@@ -1626,7 +1629,194 @@ Nam ultrices pretium est, a posuere diam elementum eu. Phasellus cursus egestas 
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Fzw-5L-Bbg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3412" y="1251"/>
+            <point key="canvasLocation" x="4654" y="1120"/>
+        </scene>
+        <!--Blog View Controller-->
+        <scene sceneID="IF8-ja-bZv">
+            <objects>
+                <viewController storyboardIdentifier="blogVC" id="2I5-HG-a3v" userLabel="Blog View Controller" customClass="BlogViewController" customModule="Travelers" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="oCa-HS-yMk">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HyX-7z-mQC" userLabel="Header View">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="131"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Travelers" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F7V-QQ-yVg">
+                                        <rect key="frame" x="28" y="64" width="169" height="47"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="169" id="OAV-Gq-UU8"/>
+                                            <constraint firstAttribute="height" constant="47" id="jcP-ud-vlH"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="Comfortaa-Bold" family="Comfortaa" pointSize="34"/>
+                                        <color key="textColor" red="0.89019607840000003" green="0.98823529409999999" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5RS-uC-Xyi" userLabel="User Account">
+                                        <rect key="frame" x="333" y="57" width="51" height="50"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="5xO-Iq-smz"/>
+                                            <constraint firstAttribute="width" constant="51" id="ygA-Cl-lE6"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="23"/>
+                                        <color key="tintColor" red="0.89019607840000003" green="0.98823529409999999" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <state key="normal">
+                                            <color key="titleColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <imageReference key="image" image="person.circle.fill" catalog="system" symbolScale="large"/>
+                                            <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="35" scale="default" weight="regular"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="userProfileButtonTapped:" destination="2I5-HG-a3v" eventType="touchUpInside" id="hsY-nB-Uxa"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" red="0.35686274509999999" green="0.36470588240000001" blue="0.59607843140000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="131" id="1nD-4T-sGV"/>
+                                    <constraint firstItem="F7V-QQ-yVg" firstAttribute="leading" secondItem="HyX-7z-mQC" secondAttribute="leading" constant="28" id="Abb-SA-dc1"/>
+                                    <constraint firstAttribute="width" constant="414" id="AxL-rt-wjH"/>
+                                    <constraint firstAttribute="trailing" secondItem="5RS-uC-Xyi" secondAttribute="trailing" constant="30" id="gHD-IP-Hjz"/>
+                                    <constraint firstItem="5RS-uC-Xyi" firstAttribute="top" secondItem="HyX-7z-mQC" secondAttribute="top" constant="57" id="hMC-IT-weh"/>
+                                    <constraint firstItem="F7V-QQ-yVg" firstAttribute="top" secondItem="HyX-7z-mQC" secondAttribute="top" constant="64" id="zpe-yo-7fD"/>
+                                </constraints>
+                            </view>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="98" translatesAutoresizingMaskIntoConstraints="NO" id="EaP-47-uDQ" userLabel="Footer Stack View">
+                                <rect key="frame" x="44" y="821" width="330.5" height="43"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Cpg-Fa-iRU" userLabel="Search Button">
+                                        <rect key="frame" x="0.0" y="0.0" width="43.5" height="43"/>
+                                        <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <state key="normal">
+                                            <color key="titleColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <imageReference key="image" image="magnifyingglass" catalog="system" symbolScale="large"/>
+                                            <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="30" scale="default" weight="semibold"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="searchButtonTapped:" destination="2I5-HG-a3v" eventType="touchUpInside" id="ULV-yh-gQH"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4nW-bQ-uX9" userLabel="Create Blog Button">
+                                        <rect key="frame" x="141.5" y="0.0" width="44.5" height="43"/>
+                                        <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <state key="normal">
+                                            <imageReference key="image" image="plus.circle" catalog="system" symbolScale="large"/>
+                                            <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="30" scale="default" weight="semibold"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="createNewBlogButtonTapped:" destination="2I5-HG-a3v" eventType="touchUpInside" id="PQW-Eu-KO2"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="R2D-4D-bRN" userLabel="Map Button">
+                                        <rect key="frame" x="284" y="0.0" width="46.5" height="43"/>
+                                        <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <state key="normal">
+                                            <imageReference key="image" image="map" catalog="system" symbolScale="large"/>
+                                            <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="30" scale="default" weight="semibold"/>
+                                        </state>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="43" id="6kc-JD-tbu"/>
+                                    <constraint firstAttribute="width" constant="330.5" id="kQo-40-UXZ"/>
+                                </constraints>
+                            </stackView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="justified" translatesAutoresizingMaskIntoConstraints="NO" id="6hk-qc-DFx">
+                                <rect key="frame" x="20" y="490.5" width="374" height="310"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="374" id="UGI-yH-8sn"/>
+                                    <constraint firstAttribute="height" constant="310" id="iqF-tC-RvM"/>
+                                </constraints>
+                                <string key="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras vestibulum augue in elit mollis, vitae faucibus nisl rutrum. Sed sem dolor, bibendum vitae enim id, sagittis venenatis magna. Nullam tincidunt nisi ut massa tincidunt congue. Proin interdum venenatis lectus sed imperdiet. Maecenas quis mollis metus, vel volutpat nisi. Suspendisse condimentum rutrum lorem a pharetra. Mauris consectetur felis sit amet odio porttitor, sed cursus libero laoreet. Cras tortor felis, consequat at ante gravida, iaculis luctus dui. Curabitur et interdum felis, euismod fermentum arcu. Ut purus dolor, malesuada id eleifend ac, facilisis id massa. Donec sapien dolor, molestie non suscipit quis, maximus vitae erat. Nulla dolor est, eleifend eu cursus sed, blandit eu elit.
+
+Integer non ullamcorper purus, vulputate auctor magna. Donec luctus, nulla a dictum fringilla, lorem leo convallis tortor, in cursus risus mi non libero. Nullam consectetur ac ex at venenatis. Ut pulvinar ut nunc vel egestas. Quisque quis posuere arcu, in sagittis magna. Curabitur vel leo sapien. Sed tincidunt felis et urna commodo, at finibus tortor laoreet. Sed fringilla sed ex ut volutpat. Morbi vel erat lobortis, aliquet lorem nec, commodo orci. Donec facilisis hendrerit tincidunt. Phasellus vehicula purus id nisi mollis euismod. Vivamus iaculis faucibus neque, sed cursus mi luctus eget. Nulla mattis scelerisque commodo. Sed faucibus vestibulum congue. Quisque faucibus felis mi, vel viverra felis elementum gravida.
+
+Phasellus tellus enim, eleifend in mattis vel, finibus ac augue. Sed eu tempus dui. Maecenas laoreet ipsum nec porta maximus. Nunc egestas vehicula lorem eget accumsan. Donec tincidunt gravida nunc, fermentum luctus erat porttitor eu. Ut pellentesque nulla sit amet lectus dictum, ut commodo quam rutrum. Etiam vulputate, enim nec consequat faucibus, augue dui ornare nulla, sed gravida arcu tellus a eros. Aenean ac enim justo. Nullam pulvinar urna quam, quis sagittis purus lacinia sit amet. Proin tempus augue sed massa laoreet, vehicula ultrices enim blandit. Aliquam finibus arcu sit amet scelerisque fringilla. Aliquam tincidunt lobortis ullamcorper. Nullam vel mi vel lacus suscipit tempus. Nunc id felis volutpat, pharetra nulla vitae, euismod enim. Mauris aliquet semper velit, vitae convallis turpis convallis et.
+
+Curabitur porttitor purus sit amet cursus pharetra. Fusce vel nibh vitae augue consectetur gravida id sit amet libero. Fusce nec consequat mauris, id accumsan velit. Integer faucibus, tellus sit amet faucibus accumsan, quam ante dictum ex, sit amet ultrices sapien lacus sed lectus. Phasellus arcu mi, luctus nec volutpat id, tristique ac velit. Donec ut elementum dui, a sagittis orci. Maecenas vehicula, diam et commodo vehicula, urna lorem pulvinar tortor, blandit ornare nisi ex vitae dolor. Mauris at rhoncus purus, ut facilisis dui. Nulla commodo pharetra volutpat. Integer ante dolor, mollis eu hendrerit ut, imperdiet eu ligula. Cras tempus ut lorem in condimentum. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.
+
+Nam ultrices pretium est, a posuere diam elementum eu. Phasellus cursus egestas augue eu suscipit. Duis tincidunt metus eu libero aliquet, id feugiat turpis laoreet. Ut rutrum quam id metus pharetra, sit amet ornare risus maximus. Sed iaculis ultrices metus bibendum sollicitudin. Ut nec nisl in sapien volutpat finibus rhoncus eu ligula. Suspendisse dui sapien, aliquam posuere ex sit amet, suscipit vulputate dui. Sed turpis urna, vehicula eu tellus sed, dictum tristique metus. Mauris tempo</string>
+                                <color key="textColor" systemColor="labelColor"/>
+                                <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="16"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Adventure of the Smokeys" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AJL-Gy-kw6">
+                                <rect key="frame" x="20" y="152" width="374" height="31.5"/>
+                                <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="28"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Great Smoky Mountains, North Carolina, USA" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" minimumFontSize="6" translatesAutoresizingMaskIntoConstraints="NO" id="yAu-y4-yJK">
+                                <rect key="frame" x="104.5" y="466" width="281.5" height="13.5"/>
+                                <fontDescription key="fontDescription" name="Comfortaa-Regular" family="Comfortaa" pointSize="12"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Muntasir Hossain" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AS2-MK-MUz">
+                                <rect key="frame" x="29" y="194" width="357" height="20"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="357" id="jM0-xy-iEf"/>
+                                    <constraint firstAttribute="height" constant="20" id="nqG-ST-wiY"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Arial-ItalicMT" family="Arial" pointSize="14"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="mappin.and.ellipse" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="EIJ-nG-MxJ">
+                                <rect key="frame" x="77.5" y="455.5" width="19" height="33"/>
+                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="32.5" id="522-zR-9Y1"/>
+                                    <constraint firstAttribute="width" constant="19" id="NX9-lY-Sq9"/>
+                                </constraints>
+                                <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="default" weight="regular"/>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="olW-fO-kCt">
+                                <rect key="frame" x="20" y="222" width="374" height="232"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="232" id="FfI-wc-3Dx"/>
+                                    <constraint firstAttribute="width" constant="374" id="XN1-xw-1el"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="k43-16-J7r"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="6hk-qc-DFx" firstAttribute="leading" secondItem="k43-16-J7r" secondAttribute="leading" constant="20" id="0Fv-92-DEd"/>
+                            <constraint firstItem="yAu-y4-yJK" firstAttribute="top" secondItem="olW-fO-kCt" secondAttribute="bottom" constant="12" id="6J9-cL-CTN"/>
+                            <constraint firstItem="olW-fO-kCt" firstAttribute="top" secondItem="AS2-MK-MUz" secondAttribute="bottom" constant="8" id="6KI-aM-uJU"/>
+                            <constraint firstItem="HyX-7z-mQC" firstAttribute="trailing" secondItem="k43-16-J7r" secondAttribute="trailing" id="8Ux-9b-LgV"/>
+                            <constraint firstItem="yAu-y4-yJK" firstAttribute="leading" secondItem="EIJ-nG-MxJ" secondAttribute="trailing" constant="8" id="AGL-xQ-WNe"/>
+                            <constraint firstItem="olW-fO-kCt" firstAttribute="leading" secondItem="k43-16-J7r" secondAttribute="leading" constant="20" id="Aog-PH-z4Q"/>
+                            <constraint firstItem="k43-16-J7r" firstAttribute="trailing" secondItem="6hk-qc-DFx" secondAttribute="trailing" constant="20" id="C5f-mY-4E5"/>
+                            <constraint firstItem="k43-16-J7r" firstAttribute="trailing" secondItem="AS2-MK-MUz" secondAttribute="trailing" constant="28" id="CJW-gm-yjQ"/>
+                            <constraint firstItem="k43-16-J7r" firstAttribute="trailing" secondItem="olW-fO-kCt" secondAttribute="trailing" constant="20" id="HSI-nF-4QN"/>
+                            <constraint firstItem="AJL-Gy-kw6" firstAttribute="leading" secondItem="k43-16-J7r" secondAttribute="leading" constant="20" id="NOa-9a-VVe"/>
+                            <constraint firstItem="k43-16-J7r" firstAttribute="trailing" secondItem="AJL-Gy-kw6" secondAttribute="trailing" constant="20" id="NeK-dm-bEX"/>
+                            <constraint firstItem="HyX-7z-mQC" firstAttribute="top" secondItem="oCa-HS-yMk" secondAttribute="top" id="QCz-ut-U4X"/>
+                            <constraint firstItem="AS2-MK-MUz" firstAttribute="leading" secondItem="k43-16-J7r" secondAttribute="leading" constant="29" id="TJI-Ay-tZf"/>
+                            <constraint firstItem="AJL-Gy-kw6" firstAttribute="top" secondItem="HyX-7z-mQC" secondAttribute="bottom" constant="21" id="bJT-kq-J6k"/>
+                            <constraint firstAttribute="bottom" secondItem="EaP-47-uDQ" secondAttribute="bottom" constant="32" id="f0Z-Bv-HHx"/>
+                            <constraint firstItem="AS2-MK-MUz" firstAttribute="top" secondItem="AJL-Gy-kw6" secondAttribute="bottom" constant="10.5" id="f2E-Sk-5mu"/>
+                            <constraint firstItem="6hk-qc-DFx" firstAttribute="top" secondItem="yAu-y4-yJK" secondAttribute="bottom" constant="11" id="iUC-M3-j47"/>
+                            <constraint firstItem="EaP-47-uDQ" firstAttribute="leading" secondItem="k43-16-J7r" secondAttribute="leading" constant="44" id="o3R-w5-KY2"/>
+                            <constraint firstItem="k43-16-J7r" firstAttribute="trailing" secondItem="yAu-y4-yJK" secondAttribute="trailing" constant="28" id="oPz-Tc-6lc"/>
+                            <constraint firstItem="HyX-7z-mQC" firstAttribute="leading" secondItem="k43-16-J7r" secondAttribute="leading" id="uWU-tQ-JZP"/>
+                            <constraint firstItem="EIJ-nG-MxJ" firstAttribute="top" secondItem="olW-fO-kCt" secondAttribute="bottom" constant="2" id="ytf-Ji-HRp"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="gQz-zQ-xL1"/>
+                    <connections>
+                        <outlet property="authorLabel" destination="AS2-MK-MUz" id="wHP-HG-B4a"/>
+                        <outlet property="titleLabel" destination="AJL-Gy-kw6" id="BYm-wh-sw7"/>
+                        <outlet property="travelDescriptionTV" destination="6hk-qc-DFx" id="1Gd-4X-QS1"/>
+                        <outlet property="travelImageView" destination="olW-fO-kCt" id="g26-pw-U0V"/>
+                        <outlet property="travelLocationLabel" destination="yAu-y4-yJK" id="73X-MP-H2M"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dZO-Tm-Ysx" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3343" y="1251"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>

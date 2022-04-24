@@ -99,6 +99,18 @@ class BlogViewController: UIViewController {
         task.resume()
     }
     
+    @IBAction func searchButtonTapped(_ sender: Any) {
+        let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        let searchViewController = storyBoard.instantiateViewController(withIdentifier: "searchVC")
+        self.navigationController?.pushViewController(searchViewController, animated: true)
+    }
+    
+    @IBAction func createNewBlogButtonTapped(_ sender: Any) {
+        let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        let createNewBlogViewController = storyBoard.instantiateViewController(withIdentifier: "createNewBlogVC")
+        self.navigationController?.pushViewController(createNewBlogViewController, animated: true)
+     }
+    
     @IBAction func userProfileButtonTapped(_ sender: Any) {
         let firebaseAuth = Auth.auth()
         do {

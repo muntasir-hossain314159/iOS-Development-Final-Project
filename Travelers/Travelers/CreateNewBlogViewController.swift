@@ -163,6 +163,13 @@ class CreateNewBlogViewController: UIViewController, UIImagePickerControllerDele
         self.navigationController?.pushViewController(blogViewController, animated: true)
     }
     
+    //Navigate to Search View Controller
+    @IBAction func searchButtonTapped(_ sender: Any) {
+        let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        let searchViewController = storyBoard.instantiateViewController(withIdentifier: "searchVC")
+        self.navigationController?.pushViewController(searchViewController, animated: true)
+    }
+    
     //Sign Out User
     @IBAction func userProfileButtonTapped(_ sender: Any) {
         let firebaseAuth = Auth.auth()
@@ -182,10 +189,5 @@ class CreateNewBlogViewController: UIViewController, UIImagePickerControllerDele
         self.navigationController?.pushViewController(launchViewController, animated: true)
     }
     
-    //Navigate to Search View Controller
-    @IBAction func searchButtonTapped(_ sender: Any) {
-        let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-        let searchViewController = storyBoard.instantiateViewController(withIdentifier: "searchVC")
-        self.navigationController?.pushViewController(searchViewController, animated: true)
-    }
+
 }
