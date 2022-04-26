@@ -923,12 +923,12 @@
         <!--Profile Page View-->
         <scene sceneID="j9u-cH-cds">
             <objects>
-                <viewController id="LlR-bp-gHg" userLabel="Profile Page View" customClass="ProfilePageViewController" customModule="Travelers" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="profileViewVC" id="LlR-bp-gHg" userLabel="Profile Page View" customClass="ProfilePageViewController" customModule="Travelers" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="pP5-R7-pu5">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Htx-OC-YoN">
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Htx-OC-YoN" userLabel="Header View">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="250"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
@@ -937,11 +937,11 @@
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     </imageView>
                                     <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dPg-t4-21y">
-                                        <rect key="frame" x="356" y="222" width="50" height="50"/>
+                                        <rect key="frame" x="327" y="222" width="79" height="80"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EkO-5c-v8F">
-                                                <rect key="frame" x="9" y="8" width="33" height="33"/>
+                                                <rect key="frame" x="17" y="14" width="45" height="44"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <state key="normal" backgroundImage="pencil-alt"/>
                                             </button>
@@ -1428,7 +1428,7 @@ Nam ultrices pretium est, a posuere diam elementum eu. Phasellus cursus egestas 
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="R1r-yP-dgV"/>
+        <segue reference="PRE-ao-fIt"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.36470588240000001" green="0.36078431370000003" blue="0.63137254899999995" alpha="0.84999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
     <resources>

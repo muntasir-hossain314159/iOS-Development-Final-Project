@@ -128,23 +128,11 @@ class CreateNewBlogViewController: UIViewController, UIImagePickerControllerDele
         self.navigationController?.pushViewController(blogViewController, animated: true)
     }
     
-    //Sign Out User
+    //User Profile Button tapped
     @IBAction func userProfileButtonTapped(_ sender: Any) {
-        let firebaseAuth = Auth.auth()
-        do {
-          try firebaseAuth.signOut() //Log out of Firebase, Google, and Facebook
-            transferToLaunchVC()
-            print("Successfully Logged Out")
-        } catch let signOutError as NSError {
-            print("Error signing out: %@", signOutError)
-        }
-    }
-    
-    //Navigate to Launch View Controller
-    func transferToLaunchVC() {
         let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-        let launchViewController = storyBoard.instantiateViewController(withIdentifier: "launchVC")
-        self.navigationController?.pushViewController(launchViewController, animated: true)
+        let profileViewController = storyBoard.instantiateViewController(withIdentifier: "profileViewVC")
+        self.navigationController?.pushViewController(profileViewController, animated: true)
     }
     
     //Navigate to Search View Controller
