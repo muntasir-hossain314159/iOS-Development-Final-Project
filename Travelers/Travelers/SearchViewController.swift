@@ -7,17 +7,127 @@
 
 import UIKit
 import Firebase
+import FirebaseFirestore
 import FBSDKLoginKit
 
-class SearchViewController: UIViewController {
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+class SearchViewController: UIViewController, UISearchBarDelegate, UITableViewDelegate, UITableViewDataSource {
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        print("Transfer to Search Result Blog VC")
+        
+        let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        let searchResultBlogViewController = storyBoard.instantiateViewController(withIdentifier: "searchResultBlogVC") as! SearchResultBlogViewController
+        searchResultBlogViewController.travel_blog_name = blogArray[indexPath.row].travel_blog_name
+        searchResultBlogViewController.travel_author = blogArray[indexPath.row].travel_author
+        searchResultBlogViewController.travel_location = blogArray[indexPath.row].travel_location
+        searchResultBlogViewController.travel_description = blogArray[indexPath.row].travel_description
+        searchResultBlogViewController.download_image_url = blogArray[indexPath.row].download_image_url
+        
+        self.navigationController?.pushViewController(searchResultBlogViewController, animated: true)
     }
     
-     @IBAction func createNewBlogButtonTapped(_ sender: Any) {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return blogArray.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "BlogCell", for: indexPath) as! BlogCell
+        
+        cell.blogName.text = blogArray[indexPath.row].travel_blog_name
+        cell.authorName.text = blogArray[indexPath.row].travel_author
+        cell.location.text = blogArray[indexPath.row].travel_location
+        displayImageInformation(blogCell: cell, downloadImageURL: blogArray[indexPath.row].download_image_url)
+        return cell
+    }
+
+    @IBOutlet var searchBar: UISearchBar!
+    @IBOutlet var tableView: UITableView!
+    var blogArray = [BlogData] ()
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        tableView.delegate = self
+        tableView.dataSource = self
+        
+        let nib = UINib(nibName: "BlogCell", bundle: nil)
+        tableView.register(nib, forCellReuseIdentifier: "BlogCell")
+
+        searchBar.delegate = self
+        self.hidKeyboardWhenTappedAround()
+    }
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        let searchValue: String = searchBar.text!
+        blogArray.removeAll()
+        self.searchFirestore(searchValue: searchValue)
+    }
+    
+    func searchFirestore(searchValue: String) {
+        let db = Firestore.firestore()
+        let blogsRef = db.collection("blogs")
+        blogsRef.whereField("travel_location", isGreaterThanOrEqualTo: searchValue)
+            .whereField("travel_location", isLessThanOrEqualTo: searchValue + "\u{f8ff}")
+            .getDocuments { (queryResult, error) in
+                if let error = error {
+                    print(error.localizedDescription)
+                    return
+                }
+                else {
+                    for document in queryResult!.documents {
+                        print(document.documentID)
+                        self.retrieveDataFromBlogsCollection(documentID: document.documentID)
+                    }
+                }
+            }
+    }
+    
+    struct BlogData: Codable {
+        var travel_blog_name: String
+        var travel_location: String
+        var travel_description: String
+        var download_image_url: String
+        var travel_author: String
+    }
+    
+    func retrieveDataFromBlogsCollection(documentID: String) {
+        let db = Firestore.firestore()
+        let docRef = db.collection("blogs").document(documentID)
+
+        docRef.getDocument(as: BlogData.self) { [self] result in
+            switch result {
+            case .success(let blogResult):
+                self.blogArray.append(blogResult)
+                self.tableView.reloadData()
+                print("Successfully Retrieved Blog Data")
+            case .failure(let error):
+                print("Error in retrieving data \(error)")
+            }
+        }
+    }
+  
+    
+    func displayImageInformation(blogCell: BlogCell, downloadImageURL: String) {
+        
+        guard let url = URL(string: downloadImageURL) else {return}
+
+        let task = URLSession.shared.dataTask(with: url) { (data, _, error) in
+          guard let data = data, error == nil else {
+              print("Failed to download image")
+              return
+          }
+            
+          DispatchQueue.main.async {
+              print("Downloading Image")
+              let image = UIImage(data: data)!
+              blogCell.blogImage.image = image
+          }
+        }
+        
+        task.resume()
+
+    }
+
+    @IBAction func createNewBlogButtonTapped(_ sender: Any) {
         let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
         let createNewBlogViewController = storyBoard.instantiateViewController(withIdentifier: "createNewBlogVC")
         self.navigationController?.pushViewController(createNewBlogViewController, animated: true)
@@ -39,5 +149,15 @@ class SearchViewController: UIViewController {
         let launchViewController = storyBoard.instantiateViewController(withIdentifier: "launchVC")
         self.navigationController?.pushViewController(launchViewController, animated: true)
     }
-    
+}
+
+extension SearchViewController {
+    func hidKeyboardWhenTappedAround() {
+        let tap = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
+        tap.cancelsTouchesInView = false
+        view.addGestureRecognizer(tap)
+    }
+    @objc func dismissKeyboard() {
+        view.endEditing(true)
+    }
 }

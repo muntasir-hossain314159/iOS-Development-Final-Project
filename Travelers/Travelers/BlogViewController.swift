@@ -23,23 +23,24 @@ class BlogViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        retrieveDataFromUsersCollection()
+        //retrieveDataFromUsersCollection()
         retrieveDataFromBlogsCollection()
     }
-    
-    struct UserData: Codable {
+
+    /*struct UserData: Codable {
         var first_name: String
         var last_name: String
-    }
+    }*/
     
     struct BlogData: Codable {
         var travel_blog_name: String
         var travel_location: String
         var travel_description: String
         var download_image_url: String
+        var travel_author: String
     }
     
-    func retrieveDataFromUsersCollection() {
+    /*func retrieveDataFromUsersCollection() {
         guard let user_ID: String = Auth.auth().currentUser?.uid
         else {
             print("Failed, unable to retrieve user")
@@ -48,6 +49,7 @@ class BlogViewController: UIViewController {
         
         let db = Firestore.firestore()
         let docRef = db.collection("users").document("\(user_ID)")
+        
         docRef.getDocument(as: UserData.self) { result in
             switch result {
             case .success(let userResult):
@@ -57,7 +59,7 @@ class BlogViewController: UIViewController {
                 print("Error in retrieving data \(error)")
             }
         }
-    }
+    }*/
     
     func retrieveDataFromBlogsCollection() {
         let db = Firestore.firestore()
@@ -76,6 +78,7 @@ class BlogViewController: UIViewController {
     
     func setUpBlogPage(blog: BlogData) {
         titleLabel.text = blog.travel_blog_name
+        authorLabel.text = blog.travel_author
         travelLocationLabel.text = blog.travel_location
         travelDescriptionTV.text = blog.travel_description
         
@@ -95,6 +98,18 @@ class BlogViewController: UIViewController {
 
         task.resume()
     }
+    
+    @IBAction func searchButtonTapped(_ sender: Any) {
+        let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        let searchViewController = storyBoard.instantiateViewController(withIdentifier: "searchVC")
+        self.navigationController?.pushViewController(searchViewController, animated: true)
+    }
+    
+    @IBAction func createNewBlogButtonTapped(_ sender: Any) {
+        let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        let createNewBlogViewController = storyBoard.instantiateViewController(withIdentifier: "createNewBlogVC")
+        self.navigationController?.pushViewController(createNewBlogViewController, animated: true)
+     }
     
     @IBAction func userProfileButtonTapped(_ sender: Any) {
         let firebaseAuth = Auth.auth()

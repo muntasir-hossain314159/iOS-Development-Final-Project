@@ -99,11 +99,46 @@ class CreateNewBlogViewController: UIViewController, UIImagePickerControllerDele
         
     }
     
+    struct UserData: Codable {
+        var first_name: String
+        var last_name: String
+    }
+    
+    func retrieveFullNameOfAuthorFromUsersCollection(travelBlogName: String, user_ID: String) {
+        guard let user_ID: String = Auth.auth().currentUser?.uid
+        else {
+            print("Failed, unable to retrieve user")
+            return
+        }
+        
+        let db = Firestore.firestore()
+        let docRef = db.collection("users").document("\(user_ID)")
+
+        docRef.getDocument(as: UserData.self) { result in
+            switch result {
+            case .success(let userResult):
+                let travelAuthor = userResult.first_name + " " + userResult.last_name
+        
+                db.collection("blogs").document("\(travelBlogName + user_ID)").setData(["travel_author": travelAuthor], merge: true) { (err) in
+                    if let error = err {
+                        print(error.localizedDescription)
+                        return
+                    }
+                    print("Successfully Uploaded all data to Firestore")
+                    self.transferToBlogPage(travelBlogName: travelBlogName, user_ID: user_ID)
+                }
+            case .failure(let error):
+                print("Error in retrieving data \(error)")
+            }
+        }
+    }
+    
     //Upload the information from the Create New Blog page onto Firestore
     @IBAction func publishBlogButtonTapped(_ sender: Any) {
         let travelBlogName: String = travelBlogNameTF.text!
         let travelLocation: String = travelLocationTF.text!
         let travelDescription: String = travelDescriptionTV.text!
+       
         let downloadImageURL: String = UserDefaults.standard.value(forKey: "url") as! String
         guard let user_ID: String = Auth.auth().currentUser?.uid else { return }
             
@@ -115,8 +150,8 @@ class CreateNewBlogViewController: UIViewController, UIImagePickerControllerDele
                 return
             }
             
-            print("Successfully Uploaded to Firestore")
-            self.transferToBlogPage(travelBlogName: travelBlogName, user_ID: user_ID)
+            print("Successfully Uploaded Inputted Information to Firestore")
+            self.retrieveFullNameOfAuthorFromUsersCollection(travelBlogName: travelBlogName, user_ID: user_ID)
         }
     }
     
@@ -126,6 +161,13 @@ class CreateNewBlogViewController: UIViewController, UIImagePickerControllerDele
         let blogViewController = storyBoard.instantiateViewController(withIdentifier: "blogVC") as! BlogViewController
         blogViewController.documentID = travelBlogName + user_ID
         self.navigationController?.pushViewController(blogViewController, animated: true)
+    }
+    
+    //Navigate to Search View Controller
+    @IBAction func searchButtonTapped(_ sender: Any) {
+        let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        let searchViewController = storyBoard.instantiateViewController(withIdentifier: "searchVC")
+        self.navigationController?.pushViewController(searchViewController, animated: true)
     }
     
     //Sign Out User
@@ -147,10 +189,5 @@ class CreateNewBlogViewController: UIViewController, UIImagePickerControllerDele
         self.navigationController?.pushViewController(launchViewController, animated: true)
     }
     
-    //Navigate to Search View Controller
-    @IBAction func searchButtonTapped(_ sender: Any) {
-        let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-        let searchViewController = storyBoard.instantiateViewController(withIdentifier: "searchVC")
-        self.navigationController?.pushViewController(searchViewController, animated: true)
-    }
+
 }
