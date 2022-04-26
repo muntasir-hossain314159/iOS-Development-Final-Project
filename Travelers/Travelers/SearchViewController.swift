@@ -17,7 +17,9 @@ class SearchViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
-     @IBAction func createNewBlogButtonTapped(_ sender: Any) {
+    @IBOutlet var searchParameters: UISearchBar!
+    
+    @IBAction func createNewBlogButtonTapped(_ sender: Any) {
         let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
         let createNewBlogViewController = storyBoard.instantiateViewController(withIdentifier: "createNewBlogVC")
         self.navigationController?.pushViewController(createNewBlogViewController, animated: true)
@@ -33,6 +35,8 @@ class SearchViewController: UIViewController {
             print("Error signing out: %@", signOutError)
         }
     }
+    
+
     
     func transferToLaunchVC() {
         let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
