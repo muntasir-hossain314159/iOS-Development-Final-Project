@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="Image references" minToolsVersion="12.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Comfortaa-Bold.ttf">
+            <string>Comfortaa-Bold</string>
+        </array>
+    </customFonts>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="TravelersMapPage" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="U8h-Td-fCn">
+                                <rect key="frame" x="0.0" y="128" width="414" height="675"/>
+                            </mapView>
+                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9Bu-oE-94w" userLabel="Header View">
+                                <rect key="frame" x="0.0" y="34" width="414" height="131"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Travelers" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7EW-Gb-i4Y">
+                                        <rect key="frame" x="28" y="64" width="169" height="47"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="47" id="Fgi-zX-Rwy"/>
+                                            <constraint firstAttribute="width" constant="169" id="Jd8-Ll-PO2"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="Comfortaa-Bold" family="Comfortaa" pointSize="34"/>
+                                        <color key="textColor" red="0.89019607840000003" green="0.98823529409999999" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6Bz-no-bQm" userLabel="User Account">
+                                        <rect key="frame" x="333" y="57" width="51" height="50"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="51" id="j9c-XB-coX"/>
+                                            <constraint firstAttribute="height" constant="50" id="lB5-gZ-3nW"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="23"/>
+                                        <color key="tintColor" red="0.89019607840000003" green="0.98823529409999999" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <state key="normal">
+                                            <color key="titleColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <imageReference key="image" image="person.circle.fill" catalog="system" symbolScale="large"/>
+                                            <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="35" scale="default" weight="regular"/>
+                                        </state>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" red="0.35686274509999999" green="0.36470588240000001" blue="0.59607843140000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="414" id="0jZ-ae-HH8"/>
+                                    <constraint firstItem="7EW-Gb-i4Y" firstAttribute="top" secondItem="9Bu-oE-94w" secondAttribute="top" constant="64" id="5rr-HA-QGo"/>
+                                    <constraint firstItem="6Bz-no-bQm" firstAttribute="top" secondItem="9Bu-oE-94w" secondAttribute="top" constant="57" id="9td-st-6m3"/>
+                                    <constraint firstAttribute="trailing" secondItem="6Bz-no-bQm" secondAttribute="trailing" constant="30" id="RdA-ED-lvO"/>
+                                    <constraint firstItem="7EW-Gb-i4Y" firstAttribute="leading" secondItem="9Bu-oE-94w" secondAttribute="leading" constant="28" id="aAz-Rq-RwE"/>
+                                    <constraint firstAttribute="height" constant="131" id="cL4-BO-WgH"/>
+                                </constraints>
+                            </view>
+                            <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" spacing="98" translatesAutoresizingMaskIntoConstraints="NO" id="GHz-As-Q3p" userLabel="Footer Stack View">
+                                <rect key="frame" x="44" y="811" width="326.5" height="40.5"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iUK-2N-ArH" userLabel="Search Button">
+                                        <rect key="frame" x="0.0" y="0.0" width="43.5" height="40.5"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="43.5" id="Fze-IJ-7Yc"/>
+                                            <constraint firstAttribute="height" constant="40.5" id="xIm-hz-ZVn"/>
+                                        </constraints>
+                                        <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <state key="normal">
+                                            <color key="titleColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <imageReference key="image" image="magnifyingglass" catalog="system" symbolScale="large"/>
+                                            <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="30" scale="default" weight="semibold"/>
+                                        </state>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uQG-e9-Gdn" userLabel="Create Blog Button">
+                                        <rect key="frame" x="141.5" y="0.0" width="43.5" height="40.5"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40.5" id="3T7-qz-mRj"/>
+                                            <constraint firstAttribute="width" constant="43.5" id="WKZ-XD-dsU"/>
+                                        </constraints>
+                                        <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <state key="normal">
+                                            <imageReference key="image" image="plus.circle" catalog="system" symbolScale="large"/>
+                                            <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="30" scale="default" weight="semibold"/>
+                                        </state>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cVF-ea-thp" userLabel="Map Button">
+                                        <rect key="frame" x="283" y="0.0" width="43.5" height="40.5"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40.5" id="J3p-PY-RYb"/>
+                                            <constraint firstAttribute="width" constant="43.5" id="jcf-ip-xl8"/>
+                                        </constraints>
+                                        <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <state key="normal">
+                                            <imageReference key="image" image="map" catalog="system" symbolScale="large"/>
+                                            <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="30" scale="default" weight="semibold"/>
+                                        </state>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40.5" id="7ty-P5-5RA"/>
+                                    <constraint firstAttribute="width" constant="326.5" id="AGR-Un-Nvc"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="U8h-Td-fCn" secondAttribute="trailing" id="2R9-1J-faS"/>
+                            <constraint firstItem="U8h-Td-fCn" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="6BL-Gm-5FI"/>
+                            <constraint firstItem="U8h-Td-fCn" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="AIN-Kc-o6U"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="U8h-Td-fCn" secondAttribute="bottom" id="OfD-o2-FEC"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="mapView" destination="U8h-Td-fCn" id="iUw-a1-EJz"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="18.840579710144929" y="68.973214285714278"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="magnifyingglass" catalog="system" width="128" height="115"/>
+        <image name="map" catalog="system" width="128" height="110"/>
+        <image name="person.circle.fill" catalog="system" width="128" height="121"/>
+        <image name="plus.circle" catalog="system" width="128" height="121"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
