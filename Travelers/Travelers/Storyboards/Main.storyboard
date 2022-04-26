@@ -11,9 +11,13 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
-        <array key="Comfortaa-VariableFont_wght.ttf">
+        <array key="Comfortaa-Bold.ttf">
             <string>Comfortaa-Bold</string>
+        </array>
+        <array key="Comfortaa-Medium.ttf">
             <string>Comfortaa-Medium</string>
+        </array>
+        <array key="Comfortaa-VariableFont_wght.ttf">
             <string>Comfortaa-Regular</string>
         </array>
     </customFonts>
@@ -929,9 +933,6 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Htx-OC-YoN" userLabel="Header View">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="250"/>
                                 <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Eman Profile Pic" translatesAutoresizingMaskIntoConstraints="NO" id="wXb-UK-G88">
-                                        <rect key="frame" x="114" y="85" width="186" height="140"/>
-                                    </imageView>
                                     <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dPg-t4-21y">
                                         <rect key="frame" x="326" y="211" width="80" height="80"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -940,6 +941,9 @@
                                                 <rect key="frame" x="18" y="18" width="45" height="44"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <state key="normal" backgroundImage="pencil-alt"/>
+                                                <connections>
+                                                    <action selector="editProfileButtonTapped:" destination="LlR-bp-gHg" eventType="touchUpInside" id="BKW-kl-FOG"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                         <color key="backgroundColor" red="0.90588235289999997" green="0.98823529409999999" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -969,6 +973,13 @@
                                             <action selector="userSignOut:" destination="LlR-bp-gHg" eventType="touchUpInside" id="vUj-uk-4Ab"/>
                                         </connections>
                                     </button>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Portrait_Placeholder" translatesAutoresizingMaskIntoConstraints="NO" id="wXb-UK-G88">
+                                        <rect key="frame" x="132" y="82" width="150" height="150"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="150" id="cbI-xo-ta2"/>
+                                            <constraint firstAttribute="height" constant="150" id="h3w-IA-9mP"/>
+                                        </constraints>
+                                    </imageView>
                                 </subviews>
                                 <color key="backgroundColor" red="0.90588235289999997" green="0.98823529409999999" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
@@ -976,14 +987,16 @@
                                     <constraint firstAttribute="width" constant="414" id="Es5-1p-0Es"/>
                                     <constraint firstAttribute="height" constant="250" id="H3l-bx-Paz"/>
                                     <constraint firstItem="oc6-rd-JI5" firstAttribute="top" secondItem="Htx-OC-YoN" secondAttribute="top" constant="52" id="Hs1-SX-EzR"/>
-                                    <constraint firstItem="wXb-UK-G88" firstAttribute="top" secondItem="Htx-OC-YoN" secondAttribute="top" constant="85" id="VR1-vR-55o"/>
+                                    <constraint firstAttribute="bottom" secondItem="wXb-UK-G88" secondAttribute="bottom" constant="18" id="Hzz-zT-8gp"/>
+                                    <constraint firstItem="wXb-UK-G88" firstAttribute="leading" secondItem="Htx-OC-YoN" secondAttribute="leading" constant="132" id="WCj-BV-99F"/>
+                                    <constraint firstItem="wXb-UK-G88" firstAttribute="top" secondItem="Htx-OC-YoN" secondAttribute="top" constant="82" id="caI-MG-0Np"/>
                                     <constraint firstItem="wXb-UK-G88" firstAttribute="centerX" secondItem="Htx-OC-YoN" secondAttribute="centerX" id="dnA-kZ-W9F"/>
                                     <constraint firstItem="ZbX-fc-pfj" firstAttribute="top" secondItem="Htx-OC-YoN" secondAttribute="top" constant="52" id="jO3-YG-Yfc"/>
+                                    <constraint firstAttribute="trailing" secondItem="wXb-UK-G88" secondAttribute="trailing" constant="132" id="kwC-Ak-xCK"/>
                                     <constraint firstAttribute="trailing" secondItem="oc6-rd-JI5" secondAttribute="trailing" constant="30" id="oLc-GS-Urj"/>
                                     <constraint firstAttribute="bottom" secondItem="ZbX-fc-pfj" secondAttribute="bottom" constant="154" id="oRN-fg-9Ps"/>
                                     <constraint firstAttribute="trailing" secondItem="ZbX-fc-pfj" secondAttribute="trailing" constant="294" id="qCJ-yC-UDG"/>
                                     <constraint firstItem="ZbX-fc-pfj" firstAttribute="leading" secondItem="Htx-OC-YoN" secondAttribute="leading" constant="8" id="rc9-d1-5hT"/>
-                                    <constraint firstAttribute="bottom" secondItem="wXb-UK-G88" secondAttribute="bottom" constant="25" id="y0P-9C-HAM"/>
                                     <constraint firstAttribute="bottom" secondItem="oc6-rd-JI5" secondAttribute="bottom" constant="151" id="z8o-Td-ubm"/>
                                 </constraints>
                             </view>
@@ -1071,10 +1084,10 @@
                                 <color key="textColor" red="0.90588235289999997" green="0.98823529409999999" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="User's First Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L05-p5-Uc6">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="User's First Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L05-p5-Uc6">
                                 <rect key="frame" x="33" y="310" width="151" height="23"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="19"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -1120,6 +1133,12 @@
                     </view>
                     <connections>
                         <outlet property="editPencilButton" destination="dPg-t4-21y" id="G0Q-5Y-7OX"/>
+                        <outlet property="squareImage" destination="wXb-UK-G88" id="Jgn-Ny-5GQ"/>
+                        <outlet property="userEmail" destination="MFQ-v3-fWV" id="220-fh-wnw"/>
+                        <outlet property="userFirstName" destination="L05-p5-Uc6" id="XEi-i9-9pg"/>
+                        <outlet property="userLastName" destination="YPM-xV-v0c" id="I6I-hC-kSK"/>
+                        <outlet property="userPassword" destination="r7x-Bb-2ws" id="XbC-ZM-7Wo"/>
+                        <outlet property="userTravelInfo" destination="BTr-WN-6ut" id="ZCQ-2g-nxw"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PeO-4H-YNt" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -1129,42 +1148,56 @@
         <!--Profile Page Edit View-->
         <scene sceneID="iKs-gp-fuy">
             <objects>
-                <viewController id="HFE-U9-Sn5" userLabel="Profile Page Edit View" customClass="ProfileEditViewController" customModule="Travelers" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="profileEditVC" id="HFE-U9-Sn5" userLabel="Profile Page Edit View" customClass="ProfileEditViewController" customModule="Travelers" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Odq-yS-n5s">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cwQ-0I-LUb">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cwQ-0I-LUb" userLabel="Header View">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="250"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Eman Profile Pic" translatesAutoresizingMaskIntoConstraints="NO" id="LhS-ha-YiC">
-                                        <rect key="frame" x="137" y="85" width="140" height="140"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    </imageView>
-                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0cA-fe-cgF">
-                                        <rect key="frame" x="118" y="202" width="40" height="40"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0cA-fe-cgF">
+                                        <rect key="frame" x="127" y="190" width="40" height="40"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="q5A-5Y-kiI">
-                                                <rect key="frame" x="0.0" y="0.0" width="40" height="40"/>
+                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9mH-yj-qwn">
+                                                <rect key="frame" x="8" y="8" width="24" height="24"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <state key="normal" title="Button"/>
+                                                <state key="normal" backgroundImage="pencil-alt"/>
                                             </button>
                                         </subviews>
                                         <color key="backgroundColor" red="0.35686274509999999" green="0.36078431370000003" blue="0.59607843140000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="40" id="ern-As-gId"/>
+                                            <constraint firstAttribute="height" constant="40" id="ibb-dt-Sz6"/>
+                                        </constraints>
                                     </view>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Portrait_Placeholder" translatesAutoresizingMaskIntoConstraints="NO" id="LhS-ha-YiC">
+                                        <rect key="frame" x="141" y="68" width="150" height="150"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="150" id="e2j-B6-Jvn"/>
+                                            <constraint firstAttribute="height" constant="150" id="iPr-XG-dvm"/>
+                                        </constraints>
+                                    </imageView>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lHi-x3-Ow2">
                                         <rect key="frame" x="8" y="52" width="112" height="44"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <state key="normal" backgroundImage="Back Button_Color"/>
                                         <connections>
+                                            <action selector="backButton:" destination="HFE-U9-Sn5" eventType="touchUpInside" id="5sI-rY-aEc"/>
                                             <action selector="backButton:" destination="1Fe-ma-aTC" eventType="touchUpInside" id="TJP-nm-qax"/>
                                             <action selector="backButton:" destination="0Ri-Xy-WSc" eventType="touchUpInside" id="YBZ-Ue-ULu"/>
                                         </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" red="0.90588235289999997" green="0.98823529409999999" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <constraints>
+                                    <constraint firstItem="LhS-ha-YiC" firstAttribute="top" secondItem="cwQ-0I-LUb" secondAttribute="top" constant="68" id="367-Ts-YU3"/>
+                                    <constraint firstAttribute="trailing" secondItem="LhS-ha-YiC" secondAttribute="trailing" constant="123" id="8Mi-a0-7bm"/>
+                                    <constraint firstItem="LhS-ha-YiC" firstAttribute="leading" secondItem="cwQ-0I-LUb" secondAttribute="leading" constant="141" id="9Az-PR-N0s"/>
+                                    <constraint firstAttribute="height" constant="250" id="G4p-ND-e6U"/>
+                                    <constraint firstItem="0cA-fe-cgF" firstAttribute="leading" secondItem="cwQ-0I-LUb" secondAttribute="leading" constant="127" id="KcU-2j-pj8"/>
+                                    <constraint firstItem="0cA-fe-cgF" firstAttribute="top" secondItem="cwQ-0I-LUb" secondAttribute="top" constant="190" id="n6j-TQ-2Rt"/>
+                                </constraints>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="First name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wn6-JV-DDQ">
                                 <rect key="frame" x="30" y="267" width="86" height="21"/>
@@ -1238,11 +1271,10 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
                             </button>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rn5-XW-GNj">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rn5-XW-GNj" userLabel="Footer View">
                                 <rect key="frame" x="0.0" y="800" width="414" height="96"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" spacing="98" translatesAutoresizingMaskIntoConstraints="NO" id="LA6-lv-rBD" userLabel="Footer Stack View">
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="98" translatesAutoresizingMaskIntoConstraints="NO" id="LA6-lv-rBD" userLabel="Footer Stack View">
                                         <rect key="frame" x="38" y="18" width="338.5" height="46"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="St3-hw-aad" userLabel="Search Button">
@@ -1253,6 +1285,9 @@
                                                     <imageReference key="image" image="magnifyingglass" catalog="system" symbolScale="large"/>
                                                     <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="30" scale="default" weight="semibold"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="searchButtonTapped:" destination="HFE-U9-Sn5" eventType="touchUpInside" id="2c0-C5-bBS"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lb3-tG-nCT" userLabel="Create Blog Button">
                                                 <rect key="frame" x="144.5" y="0.0" width="46.5" height="46"/>
@@ -1261,6 +1296,9 @@
                                                     <imageReference key="image" image="plus.circle" catalog="system" symbolScale="large"/>
                                                     <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="30" scale="default" weight="semibold"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="createNewBlogButtonTapped:" destination="HFE-U9-Sn5" eventType="touchUpInside" id="LqL-ci-vw0"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Y5X-JH-VZT" userLabel="Map Button">
                                                 <rect key="frame" x="289" y="0.0" width="49.5" height="46"/>
@@ -1274,15 +1312,32 @@
                                     </stackView>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="96" id="3AD-Fo-DAa"/>
+                                    <constraint firstAttribute="bottom" secondItem="LA6-lv-rBD" secondAttribute="bottom" constant="32" id="CDH-3u-0A2"/>
+                                    <constraint firstItem="LA6-lv-rBD" firstAttribute="top" secondItem="rn5-XW-GNj" secondAttribute="top" constant="18" id="uQy-xY-8zn"/>
+                                    <constraint firstItem="LA6-lv-rBD" firstAttribute="centerX" secondItem="rn5-XW-GNj" secondAttribute="centerX" id="uzD-NC-b8n"/>
+                                </constraints>
                             </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="qNX-rb-ra3"/>
                         <color key="backgroundColor" red="0.35686274509999999" green="0.36078431370000003" blue="0.59607843140000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <constraints>
+                            <constraint firstItem="qNX-rb-ra3" firstAttribute="trailing" secondItem="cwQ-0I-LUb" secondAttribute="trailing" id="7Fp-6G-XLT"/>
+                            <constraint firstItem="qNX-rb-ra3" firstAttribute="top" secondItem="cwQ-0I-LUb" secondAttribute="top" constant="44" id="Pza-ib-yB5"/>
+                            <constraint firstItem="rn5-XW-GNj" firstAttribute="bottom" secondItem="qNX-rb-ra3" secondAttribute="bottom" constant="34" id="QAH-e7-Cgx"/>
+                            <constraint firstItem="rn5-XW-GNj" firstAttribute="leading" secondItem="qNX-rb-ra3" secondAttribute="leading" id="XvC-Ap-s4b"/>
+                            <constraint firstItem="qNX-rb-ra3" firstAttribute="trailing" secondItem="rn5-XW-GNj" secondAttribute="trailing" id="lDU-HD-GHU"/>
+                            <constraint firstItem="cwQ-0I-LUb" firstAttribute="leading" secondItem="qNX-rb-ra3" secondAttribute="leading" id="qz6-n1-Ir8"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="editPencilButton" destination="0cA-fe-cgF" id="bac-2r-MCl"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VrE-IE-tu4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3412" y="-808"/>
+            <point key="canvasLocation" x="3411.594202898551" y="-808.25892857142856"/>
         </scene>
         <!--Blog View Controller-->
         <scene sceneID="ns5-lc-WRs">
@@ -1481,8 +1536,8 @@ Nam ultrices pretium est, a posuere diam elementum eu. Phasellus cursus egestas 
         <image name="App Logo" width="210" height="208"/>
         <image name="Back Button" width="112" height="44"/>
         <image name="Back Button_Color" width="112" height="44"/>
-        <image name="Eman Profile Pic" width="186" height="186"/>
         <image name="Facebook Sign In Logo" width="365" height="84"/>
+        <image name="Portrait_Placeholder" width="600" height="600"/>
         <image name="icons8-logout-48" width="48" height="48"/>
         <image name="magnifyingglass" catalog="system" width="32" height="32"/>
         <image name="map" catalog="system" width="32" height="32"/>
