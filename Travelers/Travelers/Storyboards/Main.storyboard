@@ -11,12 +11,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
-        <array key="Comfortaa-Regular.ttf">
-            <string>Comfortaa-Regular</string>
-        </array>
         <array key="Comfortaa-VariableFont_wght.ttf">
             <string>Comfortaa-Bold</string>
             <string>Comfortaa-Medium</string>
+            <string>Comfortaa-Regular</string>
         </array>
     </customFonts>
     <scenes>
@@ -928,29 +926,30 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Htx-OC-YoN" userLabel="Header View">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Htx-OC-YoN" userLabel="Header View">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="250"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Eman Profile Pic" translatesAutoresizingMaskIntoConstraints="NO" id="wXb-UK-G88">
-                                        <rect key="frame" x="137" y="85" width="140" height="140"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Eman Profile Pic" translatesAutoresizingMaskIntoConstraints="NO" id="wXb-UK-G88">
+                                        <rect key="frame" x="114" y="85" width="186" height="140"/>
                                     </imageView>
                                     <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dPg-t4-21y">
-                                        <rect key="frame" x="327" y="222" width="79" height="80"/>
+                                        <rect key="frame" x="326" y="211" width="80" height="80"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EkO-5c-v8F">
-                                                <rect key="frame" x="17" y="14" width="45" height="44"/>
+                                                <rect key="frame" x="18" y="18" width="45" height="44"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <state key="normal" backgroundImage="pencil-alt"/>
                                             </button>
                                         </subviews>
                                         <color key="backgroundColor" red="0.90588235289999997" green="0.98823529409999999" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                     </view>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZbX-fc-pfj">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZbX-fc-pfj">
                                         <rect key="frame" x="8" y="52" width="112" height="44"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="44" id="Wt6-Zc-6g9"/>
+                                            <constraint firstAttribute="width" constant="112" id="eSv-n1-shv"/>
+                                        </constraints>
                                         <state key="normal" backgroundImage="Back Button_Color"/>
                                         <connections>
                                             <action selector="backButton:" destination="1Fe-ma-aTC" eventType="touchUpInside" id="ALL-po-UUl"/>
@@ -958,14 +957,40 @@
                                             <action selector="backButton:" destination="LlR-bp-gHg" eventType="touchUpInside" id="zDk-z8-EPd"/>
                                         </connections>
                                     </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oc6-rd-JI5">
+                                        <rect key="frame" x="344" y="52" width="40" height="47"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="40" id="3gY-2C-4Qg"/>
+                                            <constraint firstAttribute="height" constant="47" id="Yq3-NF-mhf"/>
+                                        </constraints>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                        <state key="normal" backgroundImage="icons8-logout-48"/>
+                                        <connections>
+                                            <action selector="userSignOut:" destination="LlR-bp-gHg" eventType="touchUpInside" id="vUj-uk-4Ab"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" red="0.90588235289999997" green="0.98823529409999999" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <constraints>
+                                    <constraint firstItem="oc6-rd-JI5" firstAttribute="leading" secondItem="Htx-OC-YoN" secondAttribute="leading" constant="344" id="0mU-8x-Wir"/>
+                                    <constraint firstAttribute="width" constant="414" id="Es5-1p-0Es"/>
+                                    <constraint firstAttribute="height" constant="250" id="H3l-bx-Paz"/>
+                                    <constraint firstItem="oc6-rd-JI5" firstAttribute="top" secondItem="Htx-OC-YoN" secondAttribute="top" constant="52" id="Hs1-SX-EzR"/>
+                                    <constraint firstItem="wXb-UK-G88" firstAttribute="top" secondItem="Htx-OC-YoN" secondAttribute="top" constant="85" id="VR1-vR-55o"/>
+                                    <constraint firstItem="wXb-UK-G88" firstAttribute="centerX" secondItem="Htx-OC-YoN" secondAttribute="centerX" id="dnA-kZ-W9F"/>
+                                    <constraint firstItem="ZbX-fc-pfj" firstAttribute="top" secondItem="Htx-OC-YoN" secondAttribute="top" constant="52" id="jO3-YG-Yfc"/>
+                                    <constraint firstAttribute="trailing" secondItem="oc6-rd-JI5" secondAttribute="trailing" constant="30" id="oLc-GS-Urj"/>
+                                    <constraint firstAttribute="bottom" secondItem="ZbX-fc-pfj" secondAttribute="bottom" constant="154" id="oRN-fg-9Ps"/>
+                                    <constraint firstAttribute="trailing" secondItem="ZbX-fc-pfj" secondAttribute="trailing" constant="294" id="qCJ-yC-UDG"/>
+                                    <constraint firstItem="ZbX-fc-pfj" firstAttribute="leading" secondItem="Htx-OC-YoN" secondAttribute="leading" constant="8" id="rc9-d1-5hT"/>
+                                    <constraint firstAttribute="bottom" secondItem="wXb-UK-G88" secondAttribute="bottom" constant="25" id="y0P-9C-HAM"/>
+                                    <constraint firstAttribute="bottom" secondItem="oc6-rd-JI5" secondAttribute="bottom" constant="151" id="z8o-Td-ubm"/>
+                                </constraints>
                             </view>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3Cx-Iw-hdJ">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3Cx-Iw-hdJ" userLabel="Footer View">
                                 <rect key="frame" x="0.0" y="792" width="414" height="104"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" spacing="98" translatesAutoresizingMaskIntoConstraints="NO" id="uCH-vA-vGS" userLabel="Footer Stack View">
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="98" translatesAutoresizingMaskIntoConstraints="NO" id="uCH-vA-vGS" userLabel="Footer Stack View">
                                         <rect key="frame" x="38" y="23" width="338.5" height="46"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lHJ-1w-60o" userLabel="Search Button">
@@ -976,6 +1001,9 @@
                                                     <imageReference key="image" image="magnifyingglass" catalog="system" symbolScale="large"/>
                                                     <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="30" scale="default" weight="semibold"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="searchButtonTapped:" destination="LlR-bp-gHg" eventType="touchUpInside" id="k4o-Fl-EwU"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1eA-PY-ECB" userLabel="Create Blog Button">
                                                 <rect key="frame" x="144.5" y="0.0" width="46.5" height="46"/>
@@ -984,6 +1012,9 @@
                                                     <imageReference key="image" image="plus.circle" catalog="system" symbolScale="large"/>
                                                     <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="30" scale="default" weight="semibold"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="createNewBlogButtonTapped:" destination="LlR-bp-gHg" eventType="touchUpInside" id="ejA-Fg-pAH"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OZG-Ae-XPa" userLabel="Map Button">
                                                 <rect key="frame" x="289" y="0.0" width="49.5" height="46"/>
@@ -997,6 +1028,13 @@
                                     </stackView>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstItem="uCH-vA-vGS" firstAttribute="top" secondItem="3Cx-Iw-hdJ" secondAttribute="top" constant="23" id="055-3G-sFo"/>
+                                    <constraint firstAttribute="height" constant="104" id="Gfh-u3-kBA"/>
+                                    <constraint firstItem="uCH-vA-vGS" firstAttribute="centerX" secondItem="3Cx-Iw-hdJ" secondAttribute="centerX" id="Xiq-vc-ekt"/>
+                                    <constraint firstAttribute="width" constant="414" id="f6c-8D-BfO"/>
+                                    <constraint firstAttribute="bottom" secondItem="uCH-vA-vGS" secondAttribute="bottom" constant="35" id="ub9-xd-q0K"/>
+                                </constraints>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="First name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sCp-4h-LbR">
                                 <rect key="frame" x="32" y="271" width="86" height="21"/>
@@ -1071,6 +1109,14 @@
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="fta-XE-fdj"/>
                         <color key="backgroundColor" red="0.35686274509999999" green="0.36078431370000003" blue="0.59607843140000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <constraints>
+                            <constraint firstItem="fta-XE-fdj" firstAttribute="trailing" secondItem="3Cx-Iw-hdJ" secondAttribute="trailing" id="FDk-2r-90S"/>
+                            <constraint firstItem="Htx-OC-YoN" firstAttribute="top" secondItem="pP5-R7-pu5" secondAttribute="top" id="UJi-aq-Zdh"/>
+                            <constraint firstItem="Htx-OC-YoN" firstAttribute="trailing" secondItem="fta-XE-fdj" secondAttribute="trailing" id="eGa-sG-Qvh"/>
+                            <constraint firstItem="fta-XE-fdj" firstAttribute="bottom" secondItem="3Cx-Iw-hdJ" secondAttribute="bottom" constant="-34" id="gGp-AX-MDh"/>
+                            <constraint firstItem="fta-XE-fdj" firstAttribute="leading" secondItem="3Cx-Iw-hdJ" secondAttribute="leading" id="gO3-US-eAF"/>
+                            <constraint firstItem="Htx-OC-YoN" firstAttribute="leading" secondItem="fta-XE-fdj" secondAttribute="leading" id="qkb-yg-C9C"/>
+                        </constraints>
                     </view>
                     <connections>
                         <outlet property="editPencilButton" destination="dPg-t4-21y" id="G0Q-5Y-7OX"/>
@@ -1437,6 +1483,7 @@ Nam ultrices pretium est, a posuere diam elementum eu. Phasellus cursus egestas 
         <image name="Back Button_Color" width="112" height="44"/>
         <image name="Eman Profile Pic" width="186" height="186"/>
         <image name="Facebook Sign In Logo" width="365" height="84"/>
+        <image name="icons8-logout-48" width="48" height="48"/>
         <image name="magnifyingglass" catalog="system" width="32" height="32"/>
         <image name="map" catalog="system" width="32" height="32"/>
         <image name="mappin.and.ellipse" catalog="system" width="32" height="32"/>

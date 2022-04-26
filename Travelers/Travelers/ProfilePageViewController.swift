@@ -28,7 +28,7 @@ class ProfilePageViewController: UIViewController {
         }
     }
     
-    //Function to sign a user out when Sign Out Button is pressed
+    //Function to sign a user out when Sign Out Button is tapped
     @IBAction func userSignOut(_ sender: Any) {
         let firebaseAuth = Auth.auth()
         do {
@@ -40,6 +40,23 @@ class ProfilePageViewController: UIViewController {
         }
     }
     
+    //Navigate to Create New Blog Controller when button is tapped
+    @IBAction func createNewBlogButtonTapped(_ sender: Any) {
+        let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        let createNewBlogViewController = storyBoard.instantiateViewController(withIdentifier: "createNewBlogVC")
+        self.navigationController?.pushViewController(createNewBlogViewController, animated: true)
+     }
+    
+    //Navigate to Search View Controller when search button is tapped
+    @IBAction func searchButtonTapped(_ sender: Any) {
+        transferToSearchVC()
+    }
+    
+    //Navigate to Search View Controller when back button is tapped
+    @IBAction func backButton(_ sender: Any) {
+        transferToSearchVC()
+    }
+    
     //Navigate to Launch View Controller
     func transferToLaunchVC() {
         let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
@@ -47,8 +64,8 @@ class ProfilePageViewController: UIViewController {
         self.navigationController?.pushViewController(launchViewController, animated: true)
     }
     
-    //Navigate to Search View Controller when back button is pressed
-    @IBAction func backButton(_ sender: Any) {
+    //Navigate to Search View Controller
+    func transferToSearchVC() {
         let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
         let launchViewController = storyBoard.instantiateViewController(withIdentifier: "searchVC")
         self.navigationController?.pushViewController(launchViewController, animated: true)
