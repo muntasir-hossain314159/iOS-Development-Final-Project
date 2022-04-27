@@ -13,11 +13,11 @@
         <array key="Comfortaa-Bold.ttf">
             <string>Comfortaa-Bold</string>
         </array>
-        <array key="Comfortaa-Medium.ttf">
-            <string>Comfortaa-Medium</string>
-        </array>
         <array key="Comfortaa-Regular.ttf">
             <string>Comfortaa-Regular</string>
+        </array>
+        <array key="Comfortaa-VariableFont_wght.ttf">
+            <string>Comfortaa-Medium</string>
         </array>
     </customFonts>
     <scenes>
@@ -1342,7 +1342,7 @@
                                     <constraint firstAttribute="width" constant="374" id="UvM-vb-b7g"/>
                                     <constraint firstAttribute="height" constant="310" id="qqX-oy-R9p"/>
                                 </constraints>
-                                <mutableString key="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras vestibulum augue in elit mollis, vitae faucibus nisl rutrum. Sed sem dolor, bibendum vitae enim id, sagittis venenatis magna. Nullam tincidunt nisi ut massa tincidunt congue. Proin interdum venenatis lectus sed imperdiet. Maecenas quis mollis metus, vel volutpat nisi. Suspendisse condimentum rutrum lorem a pharetra. Mauris consectetur felis sit amet odio porttitor, sed cursus libero laoreet. Cras tortor felis, consequat at ante gravida, iaculis luctus dui. Curabitur et interdum felis, euismod fermentum arcu. Ut purus dolor, malesuada id eleifend ac, facilisis id massa. Donec sapien dolor, molestie non suscipit quis, maximus vitae erat. Nulla dolor est, eleifend eu cursus sed, blandit eu elit.
+                                <string key="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras vestibulum augue in elit mollis, vitae faucibus nisl rutrum. Sed sem dolor, bibendum vitae enim id, sagittis venenatis magna. Nullam tincidunt nisi ut massa tincidunt congue. Proin interdum venenatis lectus sed imperdiet. Maecenas quis mollis metus, vel volutpat nisi. Suspendisse condimentum rutrum lorem a pharetra. Mauris consectetur felis sit amet odio porttitor, sed cursus libero laoreet. Cras tortor felis, consequat at ante gravida, iaculis luctus dui. Curabitur et interdum felis, euismod fermentum arcu. Ut purus dolor, malesuada id eleifend ac, facilisis id massa. Donec sapien dolor, molestie non suscipit quis, maximus vitae erat. Nulla dolor est, eleifend eu cursus sed, blandit eu elit.
 
 Integer non ullamcorper purus, vulputate auctor magna. Donec luctus, nulla a dictum fringilla, lorem leo convallis tortor, in cursus risus mi non libero. Nullam consectetur ac ex at venenatis. Ut pulvinar ut nunc vel egestas. Quisque quis posuere arcu, in sagittis magna. Curabitur vel leo sapien. Sed tincidunt felis et urna commodo, at finibus tortor laoreet. Sed fringilla sed ex ut volutpat. Morbi vel erat lobortis, aliquet lorem nec, commodo orci. Donec facilisis hendrerit tincidunt. Phasellus vehicula purus id nisi mollis euismod. Vivamus iaculis faucibus neque, sed cursus mi luctus eget. Nulla mattis scelerisque commodo. Sed faucibus vestibulum congue. Quisque faucibus felis mi, vel viverra felis elementum gravida.
 
@@ -1350,7 +1350,7 @@ Phasellus tellus enim, eleifend in mattis vel, finibus ac augue. Sed eu tempus d
 
 Curabitur porttitor purus sit amet cursus pharetra. Fusce vel nibh vitae augue consectetur gravida id sit amet libero. Fusce nec consequat mauris, id accumsan velit. Integer faucibus, tellus sit amet faucibus accumsan, quam ante dictum ex, sit amet ultrices sapien lacus sed lectus. Phasellus arcu mi, luctus nec volutpat id, tristique ac velit. Donec ut elementum dui, a sagittis orci. Maecenas vehicula, diam et commodo vehicula, urna lorem pulvinar tortor, blandit ornare nisi ex vitae dolor. Mauris at rhoncus purus, ut facilisis dui. Nulla commodo pharetra volutpat. Integer ante dolor, mollis eu hendrerit ut, imperdiet eu ligula. Cras tempus ut lorem in condimentum. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.
 
-Nam ultrices pretium est, a posuere diam elementum eu. Phasellus cursus egestas augue eu suscipit. Duis tincidunt metus eu libero aliquet, id feugiat turpis laoreet. Ut rutrum quam id metus pharetra, sit amet ornare risus maximus. Sed iaculis ultrices metus bibendum sollicitudin. Ut nec nisl in sapien volutpat finibus rhoncus eu ligula. Suspendisse dui sapien, aliquam posuere ex sit amet, suscipit vulputate dui. Sed turpis urna, vehicula eu tellus sed, dictum tristique metus. Mauris tempo</mutableString>
+Nam ultrices pretium est, a posuere diam elementum eu. Phasellus cursus egestas augue eu suscipit. Duis tincidunt metus eu libero aliquet, id feugiat turpis laoreet. Ut rutrum quam id metus pharetra, sit amet ornare risus maximus. Sed iaculis ultrices metus bibendum sollicitudin. Ut nec nisl in sapien volutpat finibus rhoncus eu ligula. Suspendisse dui sapien, aliquam posuere ex sit amet, suscipit vulputate dui. Sed turpis urna, vehicula eu tellus sed, dictum tristique metus. Mauris tempo</string>
                                 <color key="textColor" systemColor="labelColor"/>
                                 <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="16"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -1442,7 +1442,7 @@ Nam ultrices pretium est, a posuere diam elementum eu. Phasellus cursus egestas 
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="I9N-eI-o66">
-                                <rect key="frame" x="20" y="269" width="374" height="526"/>
+                                <rect key="frame" x="20" y="275" width="374" height="526"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="S8P-ZV-1YY">
                                         <rect key="frame" x="0.0" y="0.0" width="374" height="1004.5"/>
@@ -1490,7 +1490,7 @@ Nam ultrices pretium est, a posuere diam elementum eu. Phasellus cursus egestas 
                                 </constraints>
                             </scrollView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Svd-5z-WyX" userLabel="Header View">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="131"/>
+                                <rect key="frame" x="0.0" y="6" width="414" height="131"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Travelers" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FqM-7S-mXZ">
                                         <rect key="frame" x="28" y="64" width="169" height="47"/>
@@ -1531,7 +1531,7 @@ Nam ultrices pretium est, a posuere diam elementum eu. Phasellus cursus egestas 
                                 </constraints>
                             </view>
                             <searchBar contentMode="redraw" placeholder="Search &quot;locations&quot;" translatesAutoresizingMaskIntoConstraints="NO" id="Ncc-dv-szl">
-                                <rect key="frame" x="36" y="155" width="343" height="44"/>
+                                <rect key="frame" x="36" y="161" width="343" height="44"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="kRK-ka-vAN"/>
@@ -1541,7 +1541,7 @@ Nam ultrices pretium est, a posuere diam elementum eu. Phasellus cursus egestas 
                                 <textInputTraits key="textInputTraits"/>
                             </searchBar>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Top spots near you" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pJ1-fK-Djz">
-                                <rect key="frame" x="36" y="221" width="183" height="23"/>
+                                <rect key="frame" x="36" y="227" width="183" height="23"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="23" id="SOi-Gz-Jqo"/>
                                     <constraint firstAttribute="width" constant="183" id="bTk-Bu-ek8"/>
@@ -1551,7 +1551,7 @@ Nam ultrices pretium est, a posuere diam elementum eu. Phasellus cursus egestas 
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="98" translatesAutoresizingMaskIntoConstraints="NO" id="hmR-LI-zIe" userLabel="Footer Stack View">
-                                <rect key="frame" x="44" y="815" width="326.5" height="40.5"/>
+                                <rect key="frame" x="44" y="821" width="326.5" height="40.5"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="M65-aP-IrA" userLabel="Search Button">
                                         <rect key="frame" x="0.0" y="0.0" width="43.5" height="40.5"/>
@@ -1629,7 +1629,7 @@ Nam ultrices pretium est, a posuere diam elementum eu. Phasellus cursus egestas 
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Fzw-5L-Bbg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4654" y="1120"/>
+            <point key="canvasLocation" x="4512" y="1251"/>
         </scene>
         <!--Blog View Controller-->
         <scene sceneID="IF8-ja-bZv">
@@ -1816,7 +1816,7 @@ Nam ultrices pretium est, a posuere diam elementum eu. Phasellus cursus egestas 
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dZO-Tm-Ysx" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3343" y="1251"/>
+            <point key="canvasLocation" x="3412" y="1251"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
